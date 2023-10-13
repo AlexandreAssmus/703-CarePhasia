@@ -46,8 +46,9 @@ def save_to_json(data, output_file):
         json.dump(data, json_file, ensure_ascii=False, indent=4)
 
 # Example usage
-input_directory = r"C:\\Usersbelen\\Desktop\\Aphasia\\Patients"
-output_json_file = 'output.json'
+
+input_directory = r"C:\Users\belen\Desktop\Aphasia\Patients\Williamson"
+output_json_file = 'Williamson.json'
 
 data = process_cha_directory(input_directory)
 save_to_json(data, output_json_file)
