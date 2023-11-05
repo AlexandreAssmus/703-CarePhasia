@@ -3,20 +3,25 @@ import vosk
 import sys
 import wave
 import os
+import getopt
 
-# Check if the script is given the expected command line argument
-if len(sys.argv) != 2:
-    print("Usage: python vosk_test.py <audio_file>")
-    sys.exit(1)
+try:
+    opts,args = getopt.getopt(sys.argv[1:], "hi:",["ifile="])
+except: 
+    print('vosk_recognizer.py -i <inputfile>')
+    sys.exit(2)
 
-# Get the parameter from the command line
-audio_file_path = sys.argv[1]
+for opt,arg in opts:
+    if opt == '-h':
+        print('vosk_recognizer.py -i <inputfile>')
+        sys.exit()
+    elif opt in ("-i", "--ifile"):
+        audio_file_path = arg
 
 # Check if the provided file exists
 if not os.path.isfile(audio_file_path):
     print(f"The file '{audio_file_path}' does not exist.")
     sys.exit(1)
-
 
 # Open the audio file for reading
 wf = wave.open(audio_file_path, "rb")
