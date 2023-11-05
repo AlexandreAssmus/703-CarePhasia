@@ -6,7 +6,7 @@ import os
 import getopt
 
 try:
-    opts,args = getopt.getopt(sys.argv[1:], "hi:",["ifile="])
+    opts,args = getopt.getopt(sys.argv[1:], "hi:d:o:",["ifile=","duration=","ofile="])
 except: 
     print('vosk_recognizer.py -i <inputfile>')
     sys.exit(2)
@@ -17,6 +17,20 @@ for opt,arg in opts:
         sys.exit()
     elif opt in ("-i", "--ifile"):
         audio_file_path = arg
+    elif opt in ("-d","--duration"):
+        duration = int(arg)
+    elif opt in ("-o","--ofile"):
+        audio_output_file_path = arg
+
+
+
+if ('duration' in locals()) or ('audio_output_file_path' in locals()) or len(sys.argv)==1:
+    rec_command_line = "rec -c 1 -b 16 -r 16k tmp_input_file.wav"
+    if('duration' in locals()):
+        rec_command_line += ' trim 0 '+str(duration)
+    os.system(rec_command_line)
+    audio_file_path = "tmp_input_file.wav"
+
 
 # Check if the provided file exists
 if not os.path.isfile(audio_file_path):
@@ -53,7 +67,7 @@ while True:
         pass  # Adjust recognition output if needed
 
 wf.close()
-if tmp_audio_file_path:
+if 'tmp_audio_file_path' in locals():
     os.remove(tmp_audio_file_path)
 
 result = rec.FinalResult()
