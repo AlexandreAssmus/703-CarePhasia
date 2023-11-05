@@ -47,6 +47,10 @@ while True:
     if rec.AcceptWaveform(data):
         pass  # Adjust recognition output if needed
 
+wf.close()
+if tmp_audio_file_path:
+    os.remove(tmp_audio_file_path)
+
 result = rec.FinalResult()
 
 # Print the transcription
