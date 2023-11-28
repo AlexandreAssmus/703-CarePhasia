@@ -4,11 +4,12 @@ nltk.download('punkt')
 
 import pandas as pd
 from textblob import TextBlob
+import matplotlib.pyplot as plt
 
 # Load CSV files into DataFrames
 # Replace 'control_group.csv' and 'aphasic_group.csv' with the actual file paths
-df_control = pd.read_csv('/content/drive/MyDrive/703_Project/control_data_clean.csv')
-df_aphasic = pd.read_csv('/content/drive/MyDrive/703_Project/patient_data_clean.csv')
+df_control = pd.read_csv('../control_data_clean.csv')
+df_aphasic = pd.read_csv('../patient_data_clean.csv')
 
 
 
