@@ -1,0 +1,71 @@
+import pandas as pd
+from google.colab import drive
+import nltk
+from nltk import word_tokenize, pos_tag
+
+nltk.download('punkt')
+nltk.download('averaged_perceptron_tagger')
+
+def count_correct_pronouns(sentence):
+    words = word_tokenize(sentence)
+    pos_tags = pos_tag(words)
+
+    pronoun_count = 0
+    pronouns = set()
+
+    for word, tag in pos_tags:
+        if tag in ['PRP', 'PRP$', 'WP', 'WP$']:
+            pronoun_count += 1
+            pronouns.add(word.lower())  # Store the lowercase form for case-insensitive comparison
+
+    return pronoun_count, pronouns
+
+def evaluate_pronoun_usage(sentence):
+    words = word_tokenize(sentence)
+    pos_tags = pos_tag(words)
+
+    pronoun_count = 0
+    correct_pronouns = set()
+
+    for i, (word, tag) in enumerate(pos_tags):
+        if tag in ['PRP', 'PRP$', 'WP', 'WP$']:
+            pronoun_count += 1
+            correct_pronouns.add(word.lower())
+
+            # Check for repetition of pronouns
+            if i > 0 and pos_tags[i - 1][0].lower() == word.lower():
+                print(f"Repetition of pronoun '{word}' detected in sentence: {sentence}")
+
+    return pronoun_count, correct_pronouns
+
+def main():
+    # Mount Google Drive
+    drive.mount('/content/drive')
+
+    # Specify the path of the CSV file in Google Drive
+    file_path = '/content/drive/MyDrive/703_Project/patient_data_clean.csv'
+
+    # Read sentences from the CSV file
+    df = pd.read_csv(file_path)
+    sentences = df['text'].tolist()
+
+    total_pronouns = 0
+    total_correct_pronouns = set()
+
+    for sentence in sentences:
+        # Check if the sentence has at least 4 words
+        if len(word_tokenize(sentence)) >= 4:
+            # Count correct pronoun usage
+            pronoun_count, correct_pronouns = count_correct_pronouns(sentence)
+            total_pronouns += pronoun_count
+            total_correct_pronouns.update(correct_pronouns)
+
+            # Evaluate pronoun repetition
+            evaluate_pronoun_usage(sentence)
+
+    print(f"Total pronouns: {total_pronouns}")
+    print(f"Total correct pronouns: {len(total_correct_pronouns)}")
+    print(f"Incorrect or unnecessary pronoun repetitions detected.")
+
+if __name__ == "__main__":
+    main()
