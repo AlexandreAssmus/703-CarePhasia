@@ -1,38 +1,39 @@
-# importing the data
 import pandas as pd
+import re
+import csv
 
+# import of the data as csv files
 df_control = pd.read_csv('../control_data_clean.csv')
 df_aphasic = pd.read_csv('../patient_data_clean.csv')
 
 print(df_aphasic.head())
 
-# defining the regular expression describing stuttering
-import re
-
-pattern = r'\b(\w+)\s+\1\b'
-
-# counting how many occurrences of that pattern found in each dataset
-
-rep_control = 0
-rep_aphasic = 0
 
 
 
+def nb_word_repetition(data):
+    """ counts the number of sentences that have a consecutive repetition of one same word (twice or more)"""
+
+    # regex definition for consecutive repetition of word
+    pattern = r'\b(\w+)\s+(\1\s+)*\1\b'
+
+    # setting iterator of sentences with stutter
+    nb = 0
+
+    # going through dataset
+    for line in data['text']:
+        if isinstance(line, (str, bytes)):
+
+            # cheching wether pattern appears
+            if re.search(pattern, line, flags=re.IGNORECASE):
+                nb+=1
+    return nb
 
 
-# # Function to check if a sentence contains consecutive repeated words
-# def contains_repeated_words(sentence):
-#     pattern = r'\b(\w+)\s+\1\b'
-#     return bool(re.search(pattern, sentence, flags=re.IGNORECASE))
+print('number of sentences with word stuttering in control dataset:', nb_word_repetition(df_control))
+print('number of sentences with word stuttering in aphasic dataset:', nb_word_repetition(df_aphasic))
 
-# # Filter and count sentences with consecutive repeated words
-# sentences_with_repeated_words = df_control[df_control.apply(contains_repeated_words)]
-# count_sentences_with_repeated_words = len(sentences_with_repeated_words)
-
-# # Display sentences and count
-# print("Sentences with consecutive repeated words:")
-# for index, row in sentences_with_repeated_words.iterrows():
-#     print(row['Sentence'])
-
-# print("\nTotal count of sentences with consecutive repeated words:", count_sentences_with_repeated_words)
-
+perc_control = nb_word_repetition(df_control)/df_control.shape[0] * 100
+perc_aphasic = nb_word_repetition(df_aphasic)/df_aphasic.shape[0] * 100
+print('control:' , perc_control, '%')
+print('aphasic', perc_aphasic, '%')
