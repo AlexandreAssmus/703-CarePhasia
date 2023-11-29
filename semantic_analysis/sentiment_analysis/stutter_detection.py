@@ -1,10 +1,13 @@
+
 import pandas as pd
 import re
 import csv
 
 # import of the data as csv files
-df_control = pd.read_csv('../control_data_clean.csv')
-df_aphasic = pd.read_csv('../patient_data_clean.csv')
+#df_control = pd.read_csv('../control_data_clean.csv')
+df_control = pd.read_csv('C:/Users/Etudiant/M1_TAL/703-CarePhasia/semantic_analysis/control_data_clean.csv')
+#df_aphasic = pd.read_csv('../patient_data_clean.csv')
+df_aphasic = pd.read_csv('C:/Users/Etudiant/M1_TAL/703-CarePhasia/semantic_analysis/patient_data_clean.csv')
 
 #print(df_aphasic.head())
 
