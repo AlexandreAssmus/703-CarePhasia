@@ -6,7 +6,7 @@ import csv
 df_control = pd.read_csv('../control_data_clean.csv')
 df_aphasic = pd.read_csv('../patient_data_clean.csv')
 
-print(df_aphasic.head())
+#print(df_aphasic.head())
 
 
 
@@ -33,7 +33,7 @@ def nb_word_repetition(data):
 print('number of sentences with word stuttering in control dataset:', nb_word_repetition(df_control))
 print('number of sentences with word stuttering in aphasic dataset:', nb_word_repetition(df_aphasic))
 
-perc_control = nb_word_repetition(df_control)/df_control.shape[0] * 100
-perc_aphasic = nb_word_repetition(df_aphasic)/df_aphasic.shape[0] * 100
-print('control:' , perc_control, '%')
-print('aphasic', perc_aphasic, '%')
+percentage_control = nb_word_repetition(df_control)/df_control.shape[0] * 100
+percentage_aphasic = nb_word_repetition(df_aphasic)/df_aphasic.shape[0] * 100
+print('control:' , percentage_control, '%')
+print('aphasic', percentage_aphasic, '%')
