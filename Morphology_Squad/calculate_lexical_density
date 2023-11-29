@@ -1,0 +1,59 @@
+import pandas as pd
+import spacy
+
+# Load the English language model from SpaCy
+nlp = spacy.load("en_core_web_sm")
+
+def calculate_lexical_density(text):
+    """
+    Calculate lexical density as the percentage of functional words in the text.
+
+    Parameters:
+    - text: str, the input text for analysis
+
+    Returns:
+    - lexical_density: float, the calculated lexical density percentage
+    """
+    # Check if the text is a valid string, if not, return 0.0
+    if isinstance(text, str):
+        # Process the text using SpaCy
+        doc = nlp(text)
+
+        # Filter functional words based on part-of-speech (PoS) tagging
+        functional_words = [token.text.lower() for token in doc if token.pos_ in {'ADP', 'AUX', 'CONJ', 'DET', 'PRON', 'SCONJ'}]
+
+        # Calculate lexical density percentage
+        total_words = len(doc)
+        functional_words_count = len(functional_words)
+
+        if total_words == 0:
+            return 0.0
+
+        lexical_density = (functional_words_count / total_words) * 100
+        return lexical_density
+    else:
+        return 0.0
+
+# Assuming you have already uploaded the CSV files
+# Load patient data from CSV
+patient_data = pd.read_csv("/content/drive/MyDrive/703_Project/patient_data_clean.csv")  # Update with the correct file name
+
+# Fill NaN values in the 'text' column with an empty string
+patient_data['text'] = patient_data['text'].fillna("")
+
+patient_data['Lexical_Density'] = patient_data['text'].apply(calculate_lexical_density)
+
+# Load control data from CSV
+control_data = pd.read_csv("/content/drive/MyDrive/703_Project/control_data_clean.csv")  # Update with the correct file name
+
+# Fill NaN values in the 'text' column with an empty string
+control_data['text'] = control_data['text'].fillna("")
+
+control_data['Lexical_Density'] = control_data['text'].apply(calculate_lexical_density)
+
+# Display the results
+print("Patient Data:")
+print(patient_data[['text', 'Lexical_Density']])
+
+print("\nControl Data:")
+print(control_data[['text', 'Lexical_Density']])
