@@ -1,0 +1,54 @@
+import pandas as pd
+import nltk
+
+# Load the CSV file into a pandas dataframe
+df = pd.read_csv("patient_morphology_data.csv")
+
+# Remove numbers from the "text" column
+df["text"] = df["text"].str.replace("\d+", "")
+
+# Tokenize the text column
+df["tokens"] = df["text"].apply(nltk.word_tokenize)
+
+# Perform part-of-speech tagging on the tokens
+df["pos_tags"] = df["tokens"].apply(nltk.pos_tag)
+
+# Extract the most common verbs
+verbs = []
+for pos in df["pos_tags"]:
+    for word, tag in pos:
+        if tag.startswith("VB"):
+            verbs.append(word)
+            
+common_verbs = nltk.FreqDist(verbs).most_common(10)
+
+# Extract the most common adjectives
+adjectives = []
+for pos in df["pos_tags"]:
+    for word, tag in pos:
+        if tag.startswith("JJ"):
+            adjectives.append(word)
+            
+common_adjectives = nltk.FreqDist(adjectives).most_common(10)
+
+# Extract the most common nouns
+nouns = []
+for pos in df["pos_tags"]:
+    for word, tag in pos:
+        if tag.startswith("NN"):
+            nouns.append(word)
+            
+common_nouns = nltk.FreqDist(nouns).most_common(10)
+
+# Print the results
+print("Most common verbs:")
+for verb, count in common_verbs:
+    print(f"{verb}: {count}")
+    
+print("\nMost common adjectives:")
+for adj, count in common_adjectives:
+    print(f"{adj}: {count}")
+    
+print("\nMost common nouns:")
+for noun, count in common_nouns:
+    print(f"{noun}: {count}")
