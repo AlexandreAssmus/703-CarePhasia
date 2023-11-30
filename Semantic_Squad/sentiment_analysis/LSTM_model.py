@@ -256,7 +256,7 @@ patients_output['sentiment_category'] = patients_output['sentiment'].apply(lambd
 # Enregistrer le fichier CSV pour les patients
 patients_output.to_csv('/content/drive/MyDrive/703_Project/semantic_data_processed_patients.csv', index=False)
 
-# Prédire les sentiments pour les patients
+# Prédire les sentiments pour le groupe contrôle
 control_data['sentiment'] = [TextBlob(str(sentence)).sentiment.polarity for sentence in control_cleaned['sentences']]
 
 # Ajouter les sentiments prédits au DataFrame
@@ -265,7 +265,7 @@ control_output = control_data[['text', 'sentiment']]
 control_output['sentiment_category'] = control_output['sentiment'].apply(lambda x: 'positive' if x > 0 else ('neutral' if x == 0 else 'negative'))
 
 # Enregistrer le fichier CSV pour les patients
-patients_output.to_csv('/content/drive/MyDrive/703_Project/semantic_data_processed_control.csv', index=False)
+control_output.to_csv('/content/drive/MyDrive/703_Project/semantic_data_processed_control.csv', index=False)
 
 import matplotlib.pyplot as plt
 import numpy as np
