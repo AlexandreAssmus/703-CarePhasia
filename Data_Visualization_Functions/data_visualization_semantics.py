@@ -34,3 +34,27 @@ print(sentiment_controls)
 '''
 Sttutering
 '''
+
+'''
+Visualization
+'''
+data = {
+    'Metric': ['Intra_sentence_similarity', 'sentiment'],
+    'Patients': [sentiment_patients, semantic_similarity_patients],
+    'Controls': [sentiment_controls, semantic_similarity_controls]
+}
+
+df = pd.DataFrame(data)
+
+df_long = pd.melt(df, id_vars=['Metric'], value_vars=['Patients', 'Controls'], var_name='Group', value_name='Value')
+
+
+plt.figure(figsize=(10, 6))
+sns.barplot(x='Metric', y='Value', hue='Group', data=df_long)
+plt.title('Comparison of Linguistic Metrics Between Patients and Controls')
+plt.xlabel('Metric')
+plt.ylabel('Value')
+plt.xticks(rotation=45)
+plt.legend(title='Group')
+plt.tight_layout()
+plt.show()

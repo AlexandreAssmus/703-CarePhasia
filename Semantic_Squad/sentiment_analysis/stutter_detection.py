@@ -6,9 +6,9 @@ from textblob import TextBlob
 
 # import of the data as csv files
 #df_control = pd.read_csv('../control_data_clean.csv')
-df_control = pd.read_csv('C:/Users/Etudiant/M1_TAL/703-CarePhasia/semantic_analysis/control_data_clean.csv')
+df_control = pd.read_csv(r'C:\Users\belen\Desktop\Université de Lorraine\703\Aphasia\Semantic_Squad\control_data_clean.csv')
 #df_aphasic = pd.read_csv('../patient_data_clean.csv')
-df_aphasic = pd.read_csv('C:/Users/Etudiant/M1_TAL/703-CarePhasia/semantic_analysis/patient_data_clean.csv')
+df_aphasic = pd.read_csv(r'C:\Users\belen\Desktop\Université de Lorraine\703\Aphasia\Semantic_Squad\patient_data_clean.csv')
 
 #print(df_aphasic.head())
 
