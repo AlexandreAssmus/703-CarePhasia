@@ -34,7 +34,7 @@ def calculate_lexical_density(text):
     else:
         return 0.0
 
-# Assuming you have already uploaded the CSV files
+
 # Load patient data from CSV
 patient_data = pd.read_csv("/content/drive/MyDrive/703_Project/patient_data_clean.csv")  # Update with the correct file name
 
