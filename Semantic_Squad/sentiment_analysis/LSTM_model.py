@@ -8,16 +8,17 @@ Original file is located at
 """
 
 import pandas as pd
-from google.colab import files
+#from google.colab import files
 
-from google.colab import drive
-drive.mount('/content/drive')
+#from google.colab import drive
+#drive.mount('/content/drive')
 
 import pandas as pd
 import re
 
 # Charger le fichier CSV des patients
-df_patients = pd.read_csv('/content/drive/MyDrive/703_Project/patient_data_clean.csv')
+df_patients = pd.read_csv('M1_TAL/703-CarePhasia/patient_data_clean.csv')
+
 print(df_patients)
 
 # Fonction pour supprimer les mots répétés correspondant au bégaiement
