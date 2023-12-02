@@ -108,11 +108,22 @@ df_long = pd.melt(df, id_vars=['Metric'], value_vars=['Patients', 'Controls'], v
 
 
 plt.figure(figsize=(10, 6))
-sns.barplot(x='Metric', y='Value', hue='Group', data=df_long)
+bar_plot = sns.barplot(x='Metric', y='Value', hue='Group', data=df_long)
 plt.title('Comparison of Linguistic Metrics Between Patients and Controls')
 plt.xlabel('Metric')
 plt.ylabel('Value')
 plt.xticks(rotation=45)
 plt.legend(title='Group')
+
+for p in bar_plot.patches:
+    bar_plot.annotate(format(p.get_height(), '.2f'), 
+                      (p.get_x() + p.get_width() / 2., p.get_height()), 
+                      ha = 'center', va = 'center', 
+                      xytext = (0, 10), 
+                      textcoords = 'offset points')
+
 plt.tight_layout()
 plt.show()
+
+print(f'The average word order distribution for controls is: {word_frequency_controls}')
+print(f'The average word order dsitribution for patients is: {word_frequency_patients}')
