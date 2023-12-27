@@ -1,0 +1,660 @@
+[
+    {
+        "type": "INV",
+        "text": "www .",
+        "mor": "",
+        "gra": "",
+        "wor": "www ."
+    },
+    {
+        "type": "INV",
+        "text": "so ‡ again Firstname you've seen these before . \u001523589_25779\u0015",
+        "mor": "co|so beg|beg adv:tem|again n:prop|Firstname pro:per|you~aux|have",
+        "gra": "1|0|BEG 2|1|BEGP 3|7|JCT 4|7|AUX 5|7|SUBJ 6|7|AUX 7|0|ROOT 8|7|OBJ",
+        "wor": "so \u001523589_23739\u0015 ‡ again \u001523829_24159\u0015 Firstname \u001524529_24909\u0015 you've \u001524909_25129\u0015 seen \u001525169_25259\u0015 these \u001525259_25429\u0015 before \u001525429_25779\u0015 ."
+    },
+    {
+        "type": "PAR",
+        "text": "okay . [+ exc] \u001525911_26211\u0015",
+        "mor": "co|okay .",
+        "gra": "1|0|INCROOT 2|1|PUNCT",
+        "wor": "okay \u001525911_26211\u0015 . [+ exc]"
+    },
+    {
+        "type": "INV",
+        "text": "so ‡ start with showing you some pictures . \u001526559_29909\u0015",
+        "mor": "co|so beg|beg n|start prep|with part|show-PRESP pro:per|you qn|some",
+        "gra": "1|0|BEG 2|1|BEGP 3|0|INCROOT 4|3|NJCT 5|4|POBJ 6|5|OBJ2 7|8|QUANT",
+        "wor": "so \u001526559_26579\u0015 ‡ start \u001526579_26859\u0015 with \u001526859_26979\u0015 showing \u001528109_28429\u0015 you \u001528429_28579\u0015 some \u001528579_28849\u0015 pictures \u001529079_29909\u0015 ."
+    },
+    {
+        "type": "INV",
+        "text": "I want you to take a minute and look at that and then tell me a story about what's going on with a beginning a middle and an end . \u001540460_49210\u0015",
+        "mor": "pro:sub|I v|want pro:per|you inf|to v|take det:art|a n|minute",
+        "gra": "1|2|SUBJ 2|0|ROOT 3|5|SUBJ 4|5|INF 5|2|COMP 6|7|DET 7|5|OBJ 8|5|CONJ",
+        "wor": "I \u001540460_40590\u0015 want \u001540620_40840\u0015 you \u001541250_41310\u0015 to \u001541310_41370\u0015 take \u001541370_41460\u0015 a \u001541460_41490\u0015 minute \u001541490_41700\u0015 and \u001541700_41790\u0015 look \u001541790_41970\u0015 at \u001541970_42150\u0015 that \u001542150_42630\u0015 and \u001542630_42830\u0015 then \u001542830_43180\u0015 tell \u001543630_43910\u0015 me \u001543910_44340\u0015 a \u001544420_44480\u0015 story \u001544480_45060\u0015 about \u001545060_45370\u0015 what's \u001545370_45660\u0015 going \u001545700_46020\u0015 on \u001546020_46460\u0015 with \u001546550_46700\u0015 a \u001546750_46870\u0015 beginning \u001546870_47610\u0015 a \u001547790_47940\u0015 middle \u001547970_48360\u0015 and \u001548510_48850\u0015 an \u001548900_49070\u0015 end \u001549070_49210\u0015 ."
+    },
+    {
+        "type": "PAR",
+        "text": "the boy kicks the ball . \u001553853_55373\u0015",
+        "mor": "det:art|the n|boy v|kick-3S det:art|the n|ball .",
+        "gra": "1|2|DET 2|3|SUBJ 3|0|ROOT 4|5|DET 5|3|OBJ 6|3|PUNCT",
+        "wor": "the \u001553853_53863\u0015 boy \u001553863_54173\u0015 kicks \u001554333_54663\u0015 the \u001554663_54813\u0015 ball \u001555023_55373\u0015 ."
+    },
+    {
+        "type": "PAR",
+        "text": "it goes through the window . \u001555829_57569\u0015",
+        "mor": "pro:per|it v|go-3S prep|through det:art|the n|window .",
+        "gra": "1|2|SUBJ 2|0|ROOT 3|2|JCT 4|5|DET 5|3|POBJ 6|2|PUNCT",
+        "wor": "it \u001555829_55969\u0015 goes \u001556139_56639\u0015 through \u001556799_57009\u0015 the \u001557039_57049\u0015 window \u001557049_57569\u0015 ."
+    },
+    {
+        "type": "PAR",
+        "text": "&-um &-um lap . [+ gram] \u001557997_61777\u0015",
+        "mor": "n|lap .",
+        "gra": "1|0|INCROOT 2|1|PUNCT",
+        "wor": "&-um \u001557997_58257\u0015 &-um \u001560617_60837\u0015 lap \u001561317_61777\u0015 . [+ gram]"
+    },
+    {
+        "type": "PAR",
+        "text": "&-um going to &=ges +... \u001564586_72156\u0015",
+        "mor": "part|go-PRESP prep|to +...",
+        "gra": "1|0|INCROOT 2|1|JCT 3|1|PUNCT",
+        "wor": "&-um \u001564586_64816\u0015 going \u001571196_71556\u0015 to \u001571786_72156\u0015 &=ges +..."
+    },
+    {
+        "type": "PAR",
+        "text": "&=head",
+        "mor": "co|yes .",
+        "gra": "1|0|INCROOT 2|1|PUNCT",
+        "wor": "&=head:yes yes \u001586055_86115\u0015 . [+ exc]"
+    },
+    {
+        "type": "INV",
+        "text": "done ? \u001587226_87526\u0015",
+        "mor": "part|do&PASTP ?",
+        "gra": "1|0|INCROOT 2|1|PUNCT",
+        "wor": "done \u001587226_87526\u0015 ?"
+    },
+    {
+        "type": "PAR",
+        "text": "yes &=head",
+        "mor": "co|yes .",
+        "gra": "1|0|INCROOT 2|1|PUNCT",
+        "wor": "yes \u001588027_88197\u0015 &=head:yes . [+ exc]"
+    },
+    {
+        "type": "INV",
+        "text": "okay . \u001588474_88524\u0015",
+        "mor": "co|okay .",
+        "gra": "1|0|INCROOT 2|1|PUNCT",
+        "wor": "okay \u001588474_88524\u0015 ."
+    },
+    {
+        "type": "INV",
+        "text": "let's do the same thing with this picture . \u001589532_94042\u0015",
+        "mor": "v|let~pro:obj|us v|do det:art|the adj|same n|thing prep|with",
+        "gra": "1|0|ROOT 2|1|OBJ 3|1|COMP 4|6|DET 5|6|MOD 6|3|OBJ 7|6|NJCT 8|9|DET",
+        "wor": "let's \u001589532_89782\u0015 do \u001589822_89952\u0015 the \u001589952_90312\u0015 same \u001590312_90522\u0015 thing \u001590522_91232\u0015 with \u001593112_93452\u0015 this \u001593452_93602\u0015 picture \u001593692_94042\u0015 ."
+    },
+    {
+        "type": "INV",
+        "text": "take a moment and look at it and then tell me a story with a beginning a middle and an end to it . \u001594094_100384\u0015",
+        "mor": "v|take det:art|a n|moment coord|and v|look prep|at pro:per|it",
+        "gra": "1|0|ROOT 2|3|DET 3|1|OBJ 4|1|CONJ 5|4|COORD 6|5|JCT 7|6|POBJ 8|10|LINK",
+        "wor": "take \u001594094_94144\u0015 a \u001594144_94184\u0015 moment \u001594184_94554\u0015 and \u001594554_94714\u0015 look \u001594714_94894\u0015 at \u001594894_95184\u0015 it \u001595184_95354\u0015 and \u001595354_95534\u0015 then \u001595534_95744\u0015 tell \u001596564_96754\u0015 me \u001596754_96884\u0015 a \u001596884_96944\u0015 story \u001596944_97724\u0015 with \u001597754_98014\u0015 a \u001598014_98144\u0015 beginning \u001598244_98704\u0015 a \u001598704_98774\u0015 middle \u001598774_99224\u0015 and \u001599264_99574\u0015 an \u001599664_99724\u0015 end \u001599724_100024\u0015 to \u0015100264_100324\u0015 it \u0015100324_100384\u0015 ."
+    },
+    {
+        "type": "PAR",
+        "text": "okay &=head",
+        "mor": "co|okay .",
+        "gra": "1|0|INCROOT 2|1|PUNCT",
+        "wor": "okay \u0015103861_104051\u0015 &=head:yes . [+ exc]"
+    },
+    {
+        "type": "PAR",
+        "text": "argument &-uh with the mother of [/] of the umbrella . [+ gram] \u0015109149_115519\u0015",
+        "mor": "n|argue&dv-MENT prep|with det:art|the n|mother prep|of det:art|the",
+        "gra": "1|0|INCROOT 2|1|NJCT 3|4|DET 4|2|POBJ 5|4|NJCT 6|7|DET 7|5|POBJ",
+        "wor": "argument \u0015109149_109589\u0015 &-uh \u0015109589_109699\u0015 with \u0015110799_111059\u0015 the \u0015111899_112059\u0015 mother \u0015112059_112539\u0015 of [/] \u0015113429_113619\u0015 of \u0015114099_114449\u0015 the \u0015114449_114659\u0015 umbrella \u0015114799_115519\u0015 . [+ gram]"
+    },
+    {
+        "type": "PAR",
+        "text": "&-um &-uh raining . [+ gram] \u0015118344_127904\u0015",
+        "mor": "part|rain-PRESP .",
+        "gra": "1|0|INCROOT 2|1|PUNCT",
+        "wor": "&-um \u0015118344_118474\u0015 &-uh \u0015127404_127434\u0015 raining \u0015127434_127904\u0015 . [+ gram]"
+    },
+    {
+        "type": "PAR",
+        "text": "do [/] do it . [+ gram] \u0015130524_132924\u0015",
+        "mor": "mod|do pro:per|it .",
+        "gra": "1|0|INCROOT 2|1|OBJ 3|1|PUNCT",
+        "wor": "do [/] \u0015130524_130884\u0015 do \u0015131994_132294\u0015 it \u0015132744_132924\u0015 . [+ gram]"
+    },
+    {
+        "type": "PAR",
+        "text": "umbrella is &-uh raining . [+ gram] \u0015134034_146484\u0015",
+        "mor": "n|umbrella aux|be&3S part|rain-PRESP .",
+        "gra": "1|3|SUBJ 2|3|AUX 3|0|ROOT 4|3|PUNCT",
+        "wor": "umbrella \u0015134034_134704\u0015 is \u0015136194_136504\u0015 &-uh \u0015146094_146104\u0015 raining \u0015146104_146484\u0015 . [+ gram]"
+    },
+    {
+        "type": "INV",
+        "text": "okay ‡ good . \u0015148702_149242\u0015",
+        "mor": "co|okay beg|beg adj|good .",
+        "gra": "1|0|BEG 2|1|BEGP 3|0|INCROOT 4|3|PUNCT",
+        "wor": "okay \u0015148702_148792\u0015 ‡ good \u0015149152_149242\u0015 ."
+    },
+    {
+        "type": "INV",
+        "text": "here comes another one . \u0015152038_153038\u0015",
+        "mor": "adv|here v|come-3S qn|another pro:indef|one .",
+        "gra": "1|2|JCT 2|0|ROOT 3|2|SUBJ 4|2|SUBJ 5|2|PUNCT",
+        "wor": "here \u0015152038_152108\u0015 comes \u0015152358_152478\u0015 another \u0015152478_152678\u0015 one \u0015152678_153038\u0015 ."
+    },
+    {
+        "type": "INV",
+        "text": "same thing . \u0015153510_154780\u0015",
+        "mor": "adj|same n|thing .",
+        "gra": "1|2|MOD 2|0|INCROOT 3|2|PUNCT",
+        "wor": "same \u0015153510_153560\u0015 thing \u0015153590_154780\u0015 ."
+    },
+    {
+        "type": "INV",
+        "text": "take a minute and then tell me a story with a beginning middle and an end . \u0015155923_160843\u0015",
+        "mor": "v|take det:art|a n|minute coord|and adv:tem|then v|tell pro:obj|me",
+        "gra": "1|0|ROOT 2|3|DET 3|1|OBJ 4|6|LINK 5|6|JCT 6|1|CJCT 7|6|OBJ2 8|9|DET",
+        "wor": "take \u0015155923_156023\u0015 a \u0015156023_156053\u0015 minute \u0015156053_156383\u0015 and \u0015156383_156483\u0015 then \u0015156483_156703\u0015 tell \u0015156743_156863\u0015 me \u0015156863_156873\u0015 a \u0015156873_156883\u0015 story \u0015156883_156993\u0015 with \u0015156993_157353\u0015 a \u0015157563_157593\u0015 beginning \u0015157593_159113\u0015 middle \u0015159173_159343\u0015 and \u0015159343_159443\u0015 an \u0015159443_159613\u0015 end \u0015160713_160843\u0015 ."
+    },
+    {
+        "type": "PAR",
+        "text": "man in the tree rescuing the cat . [+ gram] \u0015170924_176154\u0015",
+        "mor": "n|man prep|in det:art|the n|tree part|rescue-PRESP det:art|the",
+        "gra": "1|0|INCROOT 2|1|NJCT 3|4|DET 4|2|POBJ 5|1|XJCT 6|7|DET 7|5|OBJ",
+        "wor": "man \u0015170924_171334\u0015 in \u0015172364_172624\u0015 the \u0015172624_172854\u0015 tree \u0015172854_173314\u0015 rescuing \u0015174264_174964\u0015 the \u0015175494_175604\u0015 cat \u0015175634_176154\u0015 . [+ gram]"
+    },
+    {
+        "type": "PAR",
+        "text": "&-um dog barking . [+ gram] \u0015177563_180683\u0015",
+        "mor": "n|dog part|bark-PRESP .",
+        "gra": "1|0|INCROOT 2|1|XMOD 3|1|PUNCT",
+        "wor": "&-um \u0015177563_177733\u0015 dog \u0015179813_180113\u0015 barking \u0015180223_180683\u0015 . [+ gram]"
+    },
+    {
+        "type": "PAR",
+        "text": "ladder . [+ gram] \u0015183197_183597\u0015",
+        "mor": "n|ladder .",
+        "gra": "1|0|INCROOT 2|1|PUNCT",
+        "wor": "ladder \u0015183197_183597\u0015 . [+ gram]"
+    },
+    {
+        "type": "PAR",
+        "text": "one come [",
+        "mor": "det:num|one v|come-3S adv|in .",
+        "gra": "1|2|SUBJ 2|0|ROOT 3|2|JCT 4|2|PUNCT",
+        "wor": "one \u0015190763_191043\u0015 come [: comes] [* m:03s:a] \u0015193913_194333\u0015 in \u0015195093_195343\u0015 . [+ gram]"
+    },
+    {
+        "type": "PAR",
+        "text": "fire fires [",
+        "mor": "n|fire n|fight&dv-AGT-PL v|come adv|in inf|to v|rescue det:art|the",
+        "gra": "1|2|MOD 2|3|SUBJ 3|0|ROOT 4|3|JCT 5|6|INF 6|3|XJCT 7|8|DET 8|6|OBJ",
+        "wor": "fire \u0015198819_199159\u0015 fires [: fighters] [* p:w] \u0015199249_199699\u0015 come in \u0015200559_200839\u0015 &=ges to \u0015205509_205799\u0015 rescue \u0015206959_207479\u0015 the \u0015208259_208269\u0015 man \u0015208269_208689\u0015 ."
+    },
+    {
+        "type": "INV",
+        "text": "okay ‡ good . \u0015210189_210739\u0015",
+        "mor": "co|okay beg|beg adj|good .",
+        "gra": "1|0|BEG 2|1|BEGP 3|0|INCROOT 4|3|PUNCT",
+        "wor": "okay \u0015210189_210279\u0015 ‡ good \u0015210579_210739\u0015 ."
+    },
+    {
+        "type": "INV",
+        "text": "and this time I'm gonna show you this again &=laughs . \u0015212902_218562\u0015",
+        "mor": "coord|and det:dem|this n|time pro:sub|I~aux|be&1S",
+        "gra": "1|3|LINK 2|3|DET 3|0|INCROOT 4|6|SUBJ 5|6|AUX 6|3|CMOD 7|8|INF 8|6|COMP",
+        "wor": "and \u0015212902_213032\u0015 this \u0015213032_213302\u0015 time \u0015213352_213882\u0015 I'm \u0015214062_214132\u0015 gonna \u0015214242_214422\u0015 show \u0015214482_214782\u0015 you \u0015214782_215182\u0015 this \u0015216702_216902\u0015 again \u0015216972_218562\u0015 &=laughs ."
+    },
+    {
+        "type": "INV",
+        "text": "I want you to look through the pictures +/. \u0015220011_223021\u0015",
+        "mor": "pro:sub|I v|want pro:per|you inf|to v|look prep|through det:art|the",
+        "gra": "1|2|SUBJ 2|0|ROOT 3|5|SUBJ 4|5|INF 5|2|COMP 6|5|JCT 7|8|DET 8|6|POBJ",
+        "wor": "I \u0015220011_220061\u0015 want \u0015220061_220291\u0015 you \u0015220291_220361\u0015 to \u0015220361_220671\u0015 look \u0015221641_221931\u0015 through \u0015221931_222131\u0015 the \u0015222131_222291\u0015 pictures \u0015222291_223021\u0015 +/."
+    },
+    {
+        "type": "PAR",
+        "text": "okay &=head",
+        "mor": "co|okay .",
+        "gra": "1|0|INCROOT 2|1|PUNCT",
+        "wor": "okay \u0015223327_223727\u0015 &=head:yes ."
+    },
+    {
+        "type": "INV",
+        "text": "then I'll take it away +/. \u0015223749_224779\u0015",
+        "mor": "adv:tem|then pro:sub|I~mod|will v|take pro:per|it adv|away +/.",
+        "gra": "1|4|JCT 2|4|SUBJ 3|4|AUX 4|0|ROOT 5|4|OBJ 6|4|JCT 7|4|PUNCT",
+        "wor": "then \u0015223749_223839\u0015 I'll \u0015223899_223909\u0015 take \u0015223909_224109\u0015 it \u0015224109_224189\u0015 away \u0015224189_224779\u0015 +/."
+    },
+    {
+        "type": "PAR",
+        "text": "okay &=head",
+        "mor": "co|okay .",
+        "gra": "1|0|INCROOT 2|1|PUNCT",
+        "wor": "okay \u0015224945_225495\u0015 &=head:yes ."
+    },
+    {
+        "type": "INV",
+        "text": "and ask you to tell me +/. \u0015225544_226594\u0015",
+        "mor": "coord|and v|ask pro:per|you inf|to v|tell pro:obj|me +/.",
+        "gra": "1|2|LINK 2|0|ROOT 3|2|OBJ 4|5|INF 5|2|COMP 6|5|OBJ 7|2|PUNCT",
+        "wor": "and \u0015225544_225694\u0015 ask \u0015225694_225804\u0015 you \u0015225834_225964\u0015 to \u0015225964_226074\u0015 tell \u0015226134_226364\u0015 me \u0015226364_226594\u0015 +/."
+    },
+    {
+        "type": "PAR",
+        "text": "okay &=head",
+        "mor": "co|okay .",
+        "gra": "1|0|INCROOT 2|1|PUNCT",
+        "wor": "okay \u0015226783_227133\u0015 &=head:yes ."
+    },
+    {
+        "type": "INV",
+        "text": "your version of Cinderella . \u0015227471_228931\u0015",
+        "mor": "det:poss|your n|version prep|of n:prop|Cinderella .",
+        "gra": "1|2|DET 2|0|INCROOT 3|2|NJCT 4|3|POBJ 5|2|PUNCT",
+        "wor": "your \u0015227471_227671\u0015 version \u0015227671_228141\u0015 of \u0015228141_228271\u0015 Cinderella \u0015228271_228931\u0015 ."
+    },
+    {
+        "type": "PAR",
+        "text": "www .",
+        "mor": "",
+        "gra": "",
+        "wor": "www ."
+    },
+    {
+        "type": "INV",
+        "text": "&=laughs when you're ready . \u0015296953_298043\u0015",
+        "mor": "conj|when pro:per|you~cop|be&PRES adj|ready .",
+        "gra": "1|3|LINK 2|3|SUBJ 3|0|ROOT 4|3|PRED 5|3|PUNCT",
+        "wor": "&=laughs when \u0015296953_297383\u0015 you're \u0015297383_297573\u0015 ready \u0015297573_298043\u0015 ."
+    },
+    {
+        "type": "PAR",
+        "text": "okay . [+ exc] \u0015299512_299842\u0015",
+        "mor": "co|okay .",
+        "gra": "1|0|INCROOT 2|1|PUNCT",
+        "wor": "okay \u0015299512_299842\u0015 . [+ exc]"
+    },
+    {
+        "type": "PAR",
+        "text": "&-um man husband &-uh father . [+ gram] \u0015301469_306109\u0015",
+        "mor": "n|man n|husband n|father .",
+        "gra": "1|3|MOD 2|3|MOD 3|0|INCROOT 4|3|PUNCT",
+        "wor": "&-um \u0015301469_301529\u0015 man \u0015302019_302339\u0015 husband \u0015302679_304929\u0015 &-uh \u0015305549_305559\u0015 father \u0015305709_306109\u0015 . [+ gram]"
+    },
+    {
+        "type": "PAR",
+        "text": "&-um introduced the girl to &-uh stepmother and two daughters . [+ gram] \u0015309639_317279\u0015",
+        "mor": "v|introduce-PAST det:art|the n|girl prep|to step#n|mother coord|and",
+        "gra": "1|0|ROOT 2|3|DET 3|1|OBJ 4|1|JCT 5|4|POBJ 6|5|CONJ 7|8|QUANT 8|6|COORD",
+        "wor": "&-um \u0015309639_309719\u0015 introduced \u0015310669_311389\u0015 the \u0015311879_311999\u0015 girl \u0015312189_312589\u0015 to \u0015313709_314009\u0015 &-uh \u0015314749_314849\u0015 stepmother \u0015314959_315459\u0015 and \u0015315459_315779\u0015 two \u0015316789_317049\u0015 daughters \u0015317049_317279\u0015 . [+ gram]"
+    },
+    {
+        "type": "PAR",
+        "text": "&-um stepmother &-um two daughters &-uh +... \u0015318198_326878\u0015",
+        "mor": "step#n|mother det:num|two n|daughter-PL +...",
+        "gra": "1|2|SUBJ 2|3|QUANT 3|0|INCROOT 4|3|PUNCT",
+        "wor": "&-um \u0015318198_318378\u0015 stepmother \u0015320208_320988\u0015 &-um \u0015321568_321628\u0015 two \u0015322548_322728\u0015 daughters \u0015322728_323288\u0015 &-uh \u0015326868_326878\u0015 +..."
+    },
+    {
+        "type": "PAR",
+        "text": "kill them +//. \u0015332880_333040\u0015",
+        "mor": "v|kill pro:obj|them +//.",
+        "gra": "1|0|ROOT 2|1|OBJ 3|1|PUNCT",
+        "wor": "kill \u0015332880_332950\u0015 them \u0015332950_333040\u0015 +//."
+    },
+    {
+        "type": "PAR",
+        "text": "no &=head",
+        "mor": "co|no .",
+        "gra": "1|0|INCROOT 2|1|PUNCT",
+        "wor": "no \u0015338504_338564\u0015 &=head:no . [+ exc]"
+    },
+    {
+        "type": "PAR",
+        "text": "okay . [+ exc] \u0015338886_338996\u0015",
+        "mor": "co|okay .",
+        "gra": "1|0|INCROOT 2|1|PUNCT",
+        "wor": "okay \u0015338886_338996\u0015 . [+ exc]"
+    },
+    {
+        "type": "PAR",
+        "text": "sɛpmʌðɚ@u [",
+        "mor": "step#n|mother v|get&PAST det:art|a n|letter part|invite-PRESP",
+        "gra": "1|2|SUBJ 2|0|ROOT 3|4|DET 4|2|OBJ 5|4|XMOD 6|5|OBJ 7|6|JCT 8|9|DET",
+        "wor": "sɛpmʌðɚ@u [: stepmother] [* p:n] \u0015345898_346498\u0015 got \u0015346668_346928\u0015 a \u0015346988_347148\u0015 letter \u0015347148_347598\u0015 inviting \u0015350158_350888\u0015 <all \u0015351178_351378\u0015 of \u0015351378_351508\u0015 the \u0015351508_351518\u0015> [/] (.) all of the group . \u0015352048_363508\u0015"
+    },
+    {
+        "type": "PAR",
+        "text": "the [/] &-uh the &-uh animals &-um &-um +... \u0015368530_393080\u0015",
+        "mor": "det:art|the n|animal-PL +...",
+        "gra": "1|2|DET 2|0|INCROOT 3|2|PUNCT",
+        "wor": "the [/] \u0015368530_368830\u0015 &-uh \u0015374060_374070\u0015 the \u0015374070_374260\u0015 &-uh \u0015378310_378350\u0015 animals \u0015378350_378940\u0015 &-um \u0015379350_379600\u0015 &-um \u0015393020_393080\u0015 +..."
+    },
+    {
+        "type": "PAR",
+        "text": "okay . [+ exc] \u0015403237_403427\u0015",
+        "mor": "co|okay .",
+        "gra": "1|0|INCROOT 2|1|PUNCT",
+        "wor": "okay \u0015403237_403427\u0015 . [+ exc]"
+    },
+    {
+        "type": "PAR",
+        "text": "the animals +... \u0015404550_413390\u0015",
+        "mor": "det:art|the n|animal-PL +...",
+        "gra": "1|2|DET 2|0|INCROOT 3|2|PUNCT",
+        "wor": "the \u0015404550_405000\u0015 animals \u0015413180_413390\u0015 +..."
+    },
+    {
+        "type": "PAR",
+        "text": "fairy godmother &-um took the animals and (.) &=sighs +... \u0015419698_437258\u0015",
+        "mor": "n|fairy n|+n|god+n|mother v|take&PAST det:art|the n|animal-PL",
+        "gra": "1|2|MOD 2|3|SUBJ 3|0|ROOT 4|5|DET 5|3|OBJ 6|3|CONJ 7|3|PUNCT",
+        "wor": "fairy \u0015419698_419978\u0015 godmother \u0015419978_420768\u0015 &-um \u0015423318_423528\u0015 took \u0015434938_435228\u0015 the \u0015435228_435398\u0015 animals \u0015435398_436018\u0015 and \u0015437058_437258\u0015 (.) &=sighs +..."
+    },
+    {
+        "type": "PAR",
+        "text": "took the animals and &=ges &=exhales",
+        "mor": "v|take&PAST det:art|the n|animal-PL coord|and +...",
+        "gra": "1|0|ROOT 2|3|DET 3|1|OBJ 4|1|CONJ 5|1|PUNCT",
+        "wor": "took \u0015446866_447336\u0015 the \u0015450296_450526\u0015 animals \u0015451636_451806\u0015 and \u0015456596_456716\u0015 &=ges &=exhales:sharply +..."
+    },
+    {
+        "type": "PAR",
+        "text": "and [/] &=sighs and &=sighs slipper [/] (..) &=sighs slipper &=ges +... \u0015459149_494519\u0015",
+        "mor": "coord|and n|slipper +...",
+        "gra": "1|2|LINK 2|0|INCROOT 3|2|PUNCT",
+        "wor": "and [/] \u0015459149_459289\u0015 &=sighs and \u0015466779_466869\u0015 &=sighs slipper [/] \u0015476689_477409\u0015 (..) &=sighs slipper \u0015494369_494519\u0015 &=ges +..."
+    },
+    {
+        "type": "PAR",
+        "text": "&=head",
+        "mor": "co|yes .",
+        "gra": "1|0|INCROOT 2|1|PUNCT",
+        "wor": "&=head:no yes \u0015496422_496612\u0015 &=ges . [+ exc]"
+    },
+    {
+        "type": "PAR",
+        "text": "go . [+ exc] \u0015499443_499683\u0015",
+        "mor": "v|go .",
+        "gra": "1|0|ROOT 2|1|PUNCT",
+        "wor": "go \u0015499443_499683\u0015 . [+ exc]"
+    },
+    {
+        "type": "INV",
+        "text": "done ? \u0015500174_500464\u0015",
+        "mor": "part|do&PASTP ?",
+        "gra": "1|0|INCROOT 2|1|PUNCT",
+        "wor": "done \u0015500174_500464\u0015 ?"
+    },
+    {
+        "type": "PAR",
+        "text": "no . [+ exc] \u0015500764_500894\u0015",
+        "mor": "co|no .",
+        "gra": "1|0|INCROOT 2|1|PUNCT",
+        "wor": "no \u0015500764_500894\u0015 . [+ exc]"
+    },
+    {
+        "type": "INV",
+        "text": "done ? \u0015501296_501456\u0015",
+        "mor": "part|do&PASTP ?",
+        "gra": "1|0|INCROOT 2|1|PUNCT",
+        "wor": "done \u0015501296_501456\u0015 ?"
+    },
+    {
+        "type": "INV",
+        "text": "okay [/] okay . \u0015502418_503618\u0015",
+        "mor": "co|okay .",
+        "gra": "1|0|INCROOT 2|1|PUNCT",
+        "wor": "okay [/] \u0015502418_502748\u0015 okay \u0015503398_503618\u0015 ."
+    },
+    {
+        "type": "INV",
+        "text": "that was good effort . \u0015503666_504236\u0015",
+        "mor": "pro:dem|that cop|be&PAST&13S adj|good n|effort .",
+        "gra": "1|2|SUBJ 2|0|ROOT 3|4|MOD 4|2|PRED 5|2|PUNCT",
+        "wor": "that \u0015503666_503816\u0015 was \u0015503816_504006\u0015 good \u0015504006_504106\u0015 effort \u0015504106_504236\u0015 ."
+    },
+    {
+        "type": "INV",
+        "text": "lemme ask you something else . \u0015505057_506317\u0015",
+        "mor": "v|let~pro:obj|me v|ask pro:per|you pro:indef|something post|else .",
+        "gra": "1|0|ROOT 2|1|OBJ 3|1|COMP 4|3|SUBJ 5|3|OBJ 6|5|PQ 7|1|PUNCT",
+        "wor": "lemme \u0015505057_505227\u0015 ask \u0015505227_505487\u0015 you \u0015505487_505557\u0015 something \u0015505557_505907\u0015 else \u0015505907_506317\u0015 ."
+    },
+    {
+        "type": "INV",
+        "text": "tell me how you would make a peanut butter and jelly sandwich . \u0015508318_512878\u0015",
+        "mor": "v|tell pro:obj|me pro:int|how pro:per|you mod|will&COND v|make",
+        "gra": "1|0|ROOT 2|1|OBJ 3|6|LINK 4|6|SUBJ 5|6|AUX 6|1|COMP 7|12|DET 8|9|MOD",
+        "wor": "tell \u0015508318_508548\u0015 me \u0015508548_508848\u0015 how \u0015508928_509638\u0015 you \u0015509638_509828\u0015 would \u0015509828_510038\u0015 make \u0015510038_510308\u0015 a \u0015510938_511098\u0015 peanut \u0015511188_511468\u0015 butter \u0015511468_511728\u0015 and \u0015511728_512028\u0015 jelly \u0015512028_512398\u0015 sandwich \u0015512528_512878\u0015 ."
+    },
+    {
+        "type": "PAR",
+        "text": "peanut butter . [+ exc] \u0015514231_514671\u0015",
+        "mor": "n|peanut n|butter .",
+        "gra": "1|2|MOD 2|0|INCROOT 3|2|PUNCT",
+        "wor": "peanut \u0015514231_514391\u0015 butter \u0015514551_514671\u0015 . [+ exc]"
+    },
+    {
+        "type": "PAR",
+        "text": "jelly and peanut butter and bread . [+ gram] \u0015517203_519982\u0015",
+        "mor": "n|jelly coord|and n|peanut n|butter coord|and n|bread .",
+        "gra": "1|0|INCROOT 2|1|CONJ 3|4|MOD 4|2|COORD 5|1|CONJ 6|5|COORD 7|1|PUNCT",
+        "wor": "jelly \u0015517203_517653\u0015 and \u0015518213_518363\u0015 peanut \u0015518363_518793\u0015 butter \u0015518793_519113\u0015 and \u0015519433_519673\u0015 bread \u0015519673_519983\u0015 . [+ gram]"
+    },
+    {
+        "type": "PAR",
+        "text": "and &=ges put it all together . \u0015526860_528290\u0015",
+        "mor": "coord|and v|put&ZERO pro:per|it adv|all adv|together .",
+        "gra": "1|2|LINK 2|0|ROOT 3|2|OBJ 4|5|JCT 5|2|JCT 6|2|PUNCT",
+        "wor": "and \u0015526860_526970\u0015 &=ges put \u0015527150_527310\u0015 it \u0015527310_527440\u0015 all \u0015527490_527750\u0015 together \u0015527920_528290\u0015 ."
+    },
+    {
+        "type": "INV",
+        "text": "okay ‡ good . \u0015530142_531232\u0015",
+        "mor": "co|okay beg|beg adj|good .",
+        "gra": "1|0|BEG 2|1|BEGP 3|0|INCROOT 4|3|PUNCT",
+        "wor": "okay \u0015530142_530312\u0015 ‡ good \u0015531032_531232\u0015 ."
+    },
+    {
+        "type": "INV",
+        "text": "alright let me ask you something else . \u0015532089_533749\u0015",
+        "mor": "co|alright v|let&ZERO pro:obj|me v|ask pro:per|you",
+        "gra": "1|2|COM 2|0|ROOT 3|2|OBJ 4|2|COMP 5|4|OBJ 6|5|POBJ 7|6|PQ 8|2|PUNCT",
+        "wor": "alright \u0015532089_532369\u0015 let \u0015532369_532489\u0015 me \u0015532489_532689\u0015 ask \u0015532689_532879\u0015 you \u0015532879_532939\u0015 something \u0015532939_533319\u0015 else \u0015533319_533749\u0015 ."
+    },
+    {
+        "type": "INV",
+        "text": "<do you> [/] do you remember the day of Nine_eleven ? \u0015534305_538275\u0015",
+        "mor": "mod|do pro:per|you v|remember det:art|the n|day prep|of",
+        "gra": "1|3|AUX 2|3|SUBJ 3|0|ROOT 4|5|DET 5|3|OBJ 6|5|NJCT 7|6|POBJ 8|3|PUNCT",
+        "wor": "<do \u0015534305_534375\u0015 you \u0015534375_535105\u0015> [/] do you remember the day of Nine_eleven ? \u0015535865_538275\u0015"
+    },
+    {
+        "type": "PAR",
+        "text": "yes &=head",
+        "mor": "co|yes .",
+        "gra": "1|0|INCROOT 2|1|PUNCT",
+        "wor": "yes \u0015538750_539200\u0015 &=head:yes ."
+    },
+    {
+        "type": "INV",
+        "text": "<can you> [/] can you tell me kind_of what that was like for you ? \u0015539557_544217\u0015",
+        "mor": "mod|can pro:per|you v|tell pro:obj|me adv|kind_of pro:int|what",
+        "gra": "1|3|AUX 2|3|SUBJ 3|0|ROOT 4|3|OBJ 5|3|JCT 6|8|LINK 7|8|LINK 8|5|CPOBJ",
+        "wor": "<can \u0015539557_539707\u0015 you \u0015539707_539947\u0015> [/] can you tell me kind_of what that was like for you ? \u0015540817_544217\u0015"
+    },
+    {
+        "type": "INV",
+        "text": "when [/] when you heard the news . \u0015544262_545472\u0015",
+        "mor": "conj|when pro:per|you v|hear&PAST det:art|the n|news .",
+        "gra": "1|3|LINK 2|3|SUBJ 3|0|ROOT 4|5|DET 5|3|OBJ 6|3|PUNCT",
+        "wor": "when [/] \u0015544262_544492\u0015 when \u0015544492_544662\u0015 you \u0015544662_544782\u0015 heard \u0015544842_545082\u0015 the \u0015545082_545142\u0015 news \u0015545142_545472\u0015 ."
+    },
+    {
+        "type": "INV",
+        "text": "where you were or what happened ? \u0015545709_547459\u0015",
+        "mor": "pro:int|where pro:per|you cop|be&PAST coord|or pro:int|what",
+        "gra": "1|3|LINK 2|3|SUBJ 3|0|ROOT 4|6|LINK 5|6|SUBJ 6|3|CJCT 7|3|PUNCT",
+        "wor": "where \u0015545709_545779\u0015 you \u0015545779_545859\u0015 were \u0015545859_546389\u0015 or \u0015546479_546559\u0015 what \u0015546559_546919\u0015 happened \u0015546919_547459\u0015 ?"
+    },
+    {
+        "type": "PAR",
+        "text": "+< okay ‡ &-um work and yes . [+ gram] \u0015547639_553209\u0015",
+        "mor": "co|okay beg|beg n|work coord|and co|yes .",
+        "gra": "1|0|BEG 2|1|BEGP 3|0|INCROOT 4|3|CONJ 5|4|COORD 6|3|PUNCT",
+        "wor": "+< okay \u0015547639_547759\u0015 ‡ &-um \u0015547759_548019\u0015 work \u0015548549_548809\u0015 and \u0015552369_552459\u0015 yes \u0015552979_553209\u0015 . [+ gram]"
+    },
+    {
+        "type": "PAR",
+        "text": "&-um I [/] I found out the &=sighs &=head",
+        "mor": "pro:sub|I v|find&PAST adv|out det:art|the +...",
+        "gra": "1|2|SUBJ 2|0|ROOT 3|2|JCT 4|5|DET 5|2|PUNCT",
+        "wor": "&-um \u0015564341_564601\u0015 I [/] \u0015564781_564811\u0015 I \u0015564811_565011\u0015 found \u0015565151_565511\u0015 out \u0015565571_565751\u0015 the \u0015584811_584821\u0015 &=sighs &=head:no &=ges +..."
+    },
+    {
+        "type": "INV",
+        "text": "was the t_v on or +..? \u0015586543_588113\u0015",
+        "mor": "cop|be&PAST&13S det:art|the n|t_v adv|on coord|or +..?",
+        "gra": "1|0|ROOT 2|3|DET 3|1|PRED 4|5|JCT 5|3|NJCT 6|1|PUNCT",
+        "wor": "was \u0015586543_586773\u0015 the \u0015586773_586793\u0015 t_v \u0015586793_587783\u0015 on \u0015587783_587953\u0015 or \u0015587953_588113\u0015 +..?"
+    },
+    {
+        "type": "PAR",
+        "text": "yes &=head",
+        "mor": "co|yes .",
+        "gra": "1|0|INCROOT 2|1|PUNCT",
+        "wor": "yes \u0015588244_588664\u0015 &=head:yes ."
+    },
+    {
+        "type": "INV",
+        "text": "uhhuh . \u0015588910_589090\u0015",
+        "mor": "co|uhhuh .",
+        "gra": "1|0|INCROOT 2|1|PUNCT",
+        "wor": "uhhuh \u0015588910_589090\u0015 ."
+    },
+    {
+        "type": "PAR",
+        "text": "yes . \u0015589574_589734\u0015",
+        "mor": "co|yes .",
+        "gra": "1|0|INCROOT 2|1|PUNCT",
+        "wor": "yes \u0015589574_589734\u0015 ."
+    },
+    {
+        "type": "PAR",
+        "text": "tv was on . \u0015590907_592547\u0015",
+        "mor": "n|tv cop|be&PAST&13S adv|on .",
+        "gra": "1|2|SUBJ 2|0|ROOT 3|2|JCT 4|2|PUNCT",
+        "wor": "tv \u0015590907_591457\u0015 was \u0015591767_592117\u0015 on \u0015592167_592547\u0015 ."
+    },
+    {
+        "type": "PAR",
+        "text": "&-um radios [",
+        "mor": "n|radio cop|be&PAST&13S adv|on .",
+        "gra": "1|2|SUBJ 2|0|ROOT 3|2|JCT 4|2|PUNCT",
+        "wor": "&-um \u0015593061_593281\u0015 radios [: radio] [* m:+s:a] \u0015595311_595731\u0015 was \u0015596331_596691\u0015 on \u0015596761_597101\u0015 . [+ gram]"
+    },
+    {
+        "type": "INV",
+        "text": "were you in disbelief ? \u0015607169_608379\u0015",
+        "mor": "cop|be&PAST pro:per|you prep|in dis#n|belief ?",
+        "gra": "1|0|ROOT 2|1|PRED 3|2|NJCT 4|3|POBJ 5|1|PUNCT",
+        "wor": "were \u0015607169_607299\u0015 you \u0015607299_607509\u0015 in \u0015607509_607679\u0015 disbelief \u0015607679_608379\u0015 ?"
+    },
+    {
+        "type": "PAR",
+        "text": "yes &=head",
+        "mor": "co|yes .",
+        "gra": "1|0|INCROOT 2|1|PUNCT",
+        "wor": "yes \u0015608698_609268\u0015 &=head:yes ."
+    },
+    {
+        "type": "INV",
+        "text": "did it take a [/] a little bit to +/? \u0015609630_611420\u0015",
+        "mor": "mod|do&PAST pro:per|it v|take det:art|a adj|little n|bit inf|to +/?",
+        "gra": "1|3|AUX 2|3|SUBJ 3|0|ROOT 4|6|DET 5|6|MOD 6|3|OBJ 7|6|OM 8|3|PUNCT",
+        "wor": "did \u0015609630_609740\u0015 it \u0015609740_609910\u0015 take \u0015609910_610150\u0015 a [/] \u0015610150_610380\u0015 a \u0015610490_610520\u0015 little \u0015610520_610840\u0015 bit \u0015610840_611120\u0015 to \u0015611120_611420\u0015 +/?"
+    },
+    {
+        "type": "PAR",
+        "text": "yes &=head",
+        "mor": "co|yes .",
+        "gra": "1|0|INCROOT 2|1|PUNCT",
+        "wor": "yes \u0015611506_611736\u0015 &=head:yes ."
+    },
+    {
+        "type": "INV",
+        "text": "sink in ? \u0015612031_612801\u0015",
+        "mor": "n|sink adv|in ?",
+        "gra": "1|0|INCROOT 2|1|JCT 3|1|PUNCT",
+        "wor": "sink \u0015612031_612311\u0015 in \u0015612311_612801\u0015 ?"
+    },
+    {
+        "type": "PAR",
+        "text": "yes &=head",
+        "mor": "co|yes .",
+        "gra": "1|0|INCROOT 2|1|PUNCT",
+        "wor": "yes \u0015612846_613176\u0015 &=head:yes ."
+    },
+    {
+        "type": "INV",
+        "text": "yeah ‡ and then &-um what [/] what happened as your day went on and you saw <that it> [//] more and more happened ? \u0015615047_621957\u0015",
+        "mor": "co|yeah beg|beg coord|and adv:tem|then pro:int|what v|happen-PAST",
+        "gra": "1|0|BEG 2|1|BEGP 3|6|LINK 4|6|JCT 5|6|SUBJ 6|0|ROOT 7|10|LINK 8|9|DET",
+        "wor": "yeah \u0015615047_615107\u0015 ‡ and \u0015615107_615247\u0015 then \u0015615247_615587\u0015 &-um \u0015615617_616027\u0015 what [/] \u0015616147_616447\u0015 what \u0015616857_617077\u0015 happened \u0015617077_617507\u0015 as \u0015617507_617707\u0015 your \u0015617707_617847\u0015 day \u0015617847_618107\u0015 went \u0015618107_618297\u0015 on \u0015618297_618647\u0015 and \u0015618647_618827\u0015 you \u0015618827_618947\u0015 saw \u0015618947_619377\u0015 <that \u0015619377_619537\u0015 it \u0015619537_619737\u0015> [//] more and more happened ? \u0015620467_621957\u0015"
+    },
+    {
+        "type": "PAR",
+        "text": "yes &=head",
+        "mor": "co|yes .",
+        "gra": "1|0|INCROOT 2|1|PUNCT",
+        "wor": "yes \u0015622084_622294\u0015 &=head:yes ."
+    },
+    {
+        "type": "PAR",
+        "text": "&-um &=head",
+        "mor": "co|yes .",
+        "gra": "1|0|INCROOT 2|1|PUNCT",
+        "wor": "&-um \u0015627055_627285\u0015 &=head:no &=ges yes \u0015629165_629365\u0015 &=head:yes ."
+    },
+    {
+        "type": "INV",
+        "text": "okay [/] okay . \u0015632061_632431\u0015",
+        "mor": "co|okay .",
+        "gra": "1|0|INCROOT 2|1|PUNCT",
+        "wor": "okay [/] \u0015632061_632211\u0015 okay \u0015632211_632431\u0015 ."
+    },
+    {
+        "type": "INV",
+        "text": "good . \u0015632903_633133\u0015",
+        "mor": "adj|good .",
+        "gra": "1|0|INCROOT 2|1|PUNCT",
+        "wor": "good \u0015632903_633133\u0015 ."
+    },
+    {
+        "type": "INV",
+        "text": "thank_you for trying that . \u0015634068_635308\u0015",
+        "mor": "co|thank_you prep|for part|try-PRESP pro:dem|that .",
+        "gra": "1|0|INCROOT 2|1|JCT 3|2|POBJ 4|3|OBJ 5|1|PUNCT",
+        "wor": "thank_you \u0015634068_634378\u0015 for \u0015634378_634678\u0015 trying \u0015634758_635038\u0015 that \u0015635038_635308\u0015 ."
+    },
+    {
+        "type": "INV",
+        "text": "www .",
+        "mor": "",
+        "gra": "",
+        "wor": "www ."
+    }
+]
