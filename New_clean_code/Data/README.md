@@ -29,7 +29,18 @@ The aim is to obtain clean text that accurately reflects the participant's speec
 - **Elimination of Pragmatic Markings:** Removed unnecessary pragmatic markings and additional annotations.
 - **Symbol and Number Cleaning:** Removed all unnecessary symbols and numbers, except for apostrophes.
 
-## 4. Final Considerations
+## 4. Diagnosis Tagging of CSV Data
+### Description
+The final step in the data preparation involves tagging the CSV data files based on the diagnosis. This allows for clear differentiation between control subjects and patients, facilitating further analysis specific to each group.
+
+### Process
+- **Creation of Diagnosis Column:** A new column named 'diagnosis' is added to every CSV file.
+- **Tagging:** Files are tagged with 'control' for subjects without aphasia and 'patient' for those with aphasia.
+- **Directory Structure Preservation:** The updated CSV files are saved in a structure that mirrors the original classification into 'control' and 'patient' groups, maintaining the integrity of the dataset organization.
+- **Consistency and Scalability:** This process is designed to handle large datasets and can be scaled to accommodate additional data as the research progresses.
+
+
+## 5. Final Considerations
 ### Data Validation
 It is crucial to validate the data quality at each stage to ensure suitability for linguistic studies in aphasia.
 
