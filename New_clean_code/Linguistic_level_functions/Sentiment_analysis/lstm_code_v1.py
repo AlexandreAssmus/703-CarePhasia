@@ -17,6 +17,15 @@ from keras.losses import mean_squared_error
 from keras.callbacks import EarlyStopping
 from sklearn.model_selection import KFold
 
+'''
+DISCLAIMER:
+
+To use the embeddings download the file 'glove.6B.100d.txt'
+Link:  https://www.kaggle.com/datasets/anindya2906/glove6b?select=glove.6B.100d.txt
+
+'''
+
+
 """**Create combined csv files**
 
 def process_folder(main_folder_path, group_label):
