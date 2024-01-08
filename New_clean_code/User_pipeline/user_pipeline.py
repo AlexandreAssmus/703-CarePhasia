@@ -76,30 +76,31 @@ def clean_text(text):
 
 #### Clause segmentation ####
 
-def process_text_to_clauses(text):
+nlp = spacy.load("en_core_web_sm")
+
+def process_text_file_to_csv(file_path, csv_output_path):
     """
-    Processes text to extract sentences based on custom punctuation splitting.
-    
-    This function splits the text into sentences using regular expressions and a defined list of punctuation marks. 
-    Each split segment is treated as a separate sentence.
+    Processes a text file using spaCy to extract sentences and save them in a CSV file.
 
     Parameters:
-        text (str): Text extracted from the .txt file.
-
-    Returns:
-        pandas.DataFrame: A DataFrame with the segmented sentences.
+        file_path (str): Path to the .txt file.
+        csv_output_path (str): Path where the CSV file will be saved.
     """
-    # Define punctuation marks for sentence splitting
-    punctuation_marks = r'[.!?]'
+    # Leer el contenido del archivo .txt
+    with open(file_path, 'r', encoding='utf-8') as file:
+        text = file.read()
 
-    # Split text into sentences using the defined punctuation marks
-    sentences = re.split(punctuation_marks, text)
-    sentences = [sentence.strip() for sentence in sentences if sentence.strip()]
+    # Procesar el texto con spaCy
+    doc = nlp(text)
 
-    # Create a DataFrame with the sentences
-    df_clauses = pd.DataFrame({'text': sentences})
+    # Extraer las oraciones
+    sentences = [sent.text.strip() for sent in doc.sents]
 
-    return df_clauses
+    # Crear un DataFrame con las oraciones
+    df = pd.DataFrame({'sentence': sentences})
+
+    # Guardar el DataFrame en un archivo CSV
+    df.to_csv(csv_output_path, index=False)
 
 #### First step: Data preprocessing of .txt file ####
 
@@ -109,5 +110,5 @@ if user_file_path:
     with open(user_file_path, 'r', encoding='utf-8') as file:
         content = file.read()
         cleaned_content = clean_text(content)
-        df_clauses = process_text_to_clauses(cleaned_content)
-        df_clauses.to_csv(r'New_clean_code\User_pipeline\clause_file.csv', index=False)
+        # Guarda directamente en un archivo CSV
+        process_text_file_to_csv(cleaned_content, r'New_clean_code\User_pipeline\clause_file.csv')
