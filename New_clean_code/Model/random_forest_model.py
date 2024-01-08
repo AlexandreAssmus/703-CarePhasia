@@ -11,7 +11,7 @@ data = pd.read_csv(r'New_clean_code\Data\thresholds_per_file.csv')
 
 #Division according to data and labels
 
-X = data[['average_tree_depth', 'average_lexical_density']]
+X = data[['average_tree_depth', 'average_lexical_density','word_stutter_count','syllable_stutter_ratio']]
 y = data['diagnosis']
 
 #Division according to training and evaluation data
@@ -28,5 +28,5 @@ print(f'Accuracy: {accuracy_score(y_test, y_pred)}')
 print(classification_report(y_test, y_pred))
 
 #### Save model ####
-joblib.dump(rf_model, 'random_forest_model.pkl')
+joblib.dump(rf_model, r'New_clean_code\Model\random_forest_model.pkl')
 
