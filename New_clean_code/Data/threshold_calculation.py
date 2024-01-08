@@ -39,11 +39,11 @@ def calculate_averages_with_file_name(source_directory, destination_directory):
     if not os.path.exists(destination_directory):
         os.makedirs(destination_directory)
     averages_df = pd.DataFrame(averages)
-    output_file = os.path.join(destination_directory, 'thresholds_per_file.csv')
+    output_file = os.path.join(destination_directory, 'thresholds_per_file_1.csv')
     averages_df.to_csv(output_file, index=False)
 
 # Example usage
-calculate_averages_with_file_name('New_clean_code\Data\Tagged_full_data', 'New_clean_code\Data')
+#calculate_averages_with_file_name('New_clean_code\Data\Tagged_full_data', 'New_clean_code\Data')
 
 def calculate_general_averages(source_csv_file, destination_directory):
     """
@@ -69,6 +69,8 @@ def calculate_general_averages(source_csv_file, destination_directory):
         diagnosis_df = df[df['diagnosis'] == diagnosis]
         general_averages[diagnosis]['average_tree_depth'] = diagnosis_df['average_tree_depth'].mean()
         general_averages[diagnosis]['average_lexical_density'] = diagnosis_df['average_lexical_density'].mean()
+        general_averages[diagnosis]['word_stutter_count'] = diagnosis_df['word_stutter_count'].mean()
+        general_averages[diagnosis]['syllable_sttuter_ratio'] = diagnosis_df['syllable_stutter_ratio'].mean()
 
     # Convert the dictionary to a DataFrame and save it to the specified destination directory
     if not os.path.exists(destination_directory):
