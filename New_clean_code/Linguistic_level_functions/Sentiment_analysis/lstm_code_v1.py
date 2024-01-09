@@ -1,3 +1,13 @@
+
+
+"""DISCLAIMER:
+
+To use the embeddings download the file 'glove.6B.100d.txt'
+Link:  https://www.kaggle.com/datasets/anindya2906/glove6b?select=glove.6B.100d.txt
+
+**Libraries importation**
+"""
+
 import os
 import pandas as pd
 import re
@@ -14,17 +24,9 @@ from keras.initializers import Constant
 from keras.models import Sequential
 from keras.layers import LSTM, Dense, Dropout
 from keras.losses import mean_squared_error
-from keras.callbacks import EarlyStopping
 from sklearn.model_selection import KFold
 
-'''
-DISCLAIMER:
-
-To use the embeddings download the file 'glove.6B.100d.txt'
-Link:  https://www.kaggle.com/datasets/anindya2906/glove6b?select=glove.6B.100d.txt
-
-'''
-
+#!pip install codecarbon
 
 """**Create combined csv files**
 
@@ -58,8 +60,19 @@ combined_df.to_csv('combined_control_patient_data.csv', index=False)
 """
 
 # load the data
-data = pd.read_csv('New_clean_code\Data\CSV_clean\combined_control_patient_data.csv')
+data = pd.read_csv('combined_control_patient_data.csv')
 data_df = pd.DataFrame(data) # DataFrame
+
+# Calculer le nombre total de conversations
+total_conversations = data_df['conversation_id'].nunique()
+
+# Calculer le nombre de conversations pour chaque groupe
+control_conversations = data_df[data_df['group'] == 'control']['conversation_id'].nunique()
+patient_conversations = data_df[data_df['group'] == 'patient']['conversation_id'].nunique()
+
+print(f"Nombre total de conversations : {total_conversations}")
+print(f"Nombre de conversations du groupe 'control' : {control_conversations}")
+print(f"Nombre de conversations du groupe 'patient' : {patient_conversations}")
 
 # Text data cleaning function
 def clean_text(text):
@@ -74,13 +87,11 @@ data_df['text'] = data_df['text'].apply(clean_text)
 # Function to calculate sentiment score
 def sentiment_score(text):
     analysis = TextBlob(text) # Creating a TextBlob object from the given text
-    return analysis.sentiment.polarity  # Returns the sentiment polarity calculated by TextBlob, the polarity is a floating-point score ranging from -1 (negative) to 1 (positive)
+    return analysis.sentiment.polarity  # Returns the sentiment polarity calculated by TextBlob, he polarity is a floating-point score ranging from -1 (negative) to 1 (positive)
 
 # Apply the sentiment score calculation function to each text in the 'text' column of the DataFrame
 #The result is stored in a new column 'sentiment' in the DataFrame
 data_df['sentiment'] = data_df['text'].apply(sentiment_score)
-
-print(data_df)
 
 # Grouping data by conversation_id
 conversation_ids = data['conversation_id'].unique() # Extract unique conversation IDs from the data
@@ -119,11 +130,11 @@ tokenizer.fit_on_texts(data_df['text']) # Fit the tokenizer on the text data
 
 # Calculating the total number of unique words in the dataset
 word_count = len(tokenizer.word_index)  # Get the length of the word_index
-print(f"Nombre total de mots uniques dans le jeu de données : {word_count}") # Print the total number of unique words
+print(f"Total number of unique words in the dataset : {word_count}") # Print the total number of unique words
 
 text_lengths = [len(text.split()) for text in data_df['text']]
-print(f"Moyenne: {np.mean(text_lengths)}")
-print(f"Médiane: {np.median(text_lengths)}")
+print(f"Mean: {np.mean(text_lengths)}")
+print(f"Median: {np.median(text_lengths)}")
 print(f"Percentile 90: {np.percentile(text_lengths, 90)}")
 
 """**Step 2 : Word Embeddings preparation**"""
@@ -131,7 +142,7 @@ print(f"Percentile 90: {np.percentile(text_lengths, 90)}")
 # Loading GloVe embeddings
 EMBEDDING_DIM = 100  # for GloVe 6B with 100-dimensional vectors
 embedding_index = {}
-with open('New_clean_code\Linguistic_level_functions\Sentiment_analysis\glove.6B.100d.txt', 'r', encoding='utf-8') as f:
+with open('glove.6B.100d.txt', 'r', encoding='utf-8') as f:
     for line in f:
         values = line.split()
         word = values[0]
@@ -166,53 +177,62 @@ print(f"Percentage of tokenizer words covered by GloVe : {coverage_percentage}%"
 
 """**Step 3 : LSTM implementation, training and Cross-Validation Methodology**"""
 
+from codecarbon import track_emissions
+
 # Initialize fold number and number of folds for cross-validation
+#@track_emissions() # track the carbon footprint
+#def train_evaluate_model():
 fold_no = 1
 num_folds = 5
 kfold = KFold(n_splits=num_folds, shuffle=True) # Create KFold object with 3 splits and shuffling
-# Initialize early stopping callback
-#early_stopping = EarlyStopping(monitor='val_loss', patience=10)
-# Loop through each fold for cross-validation
+  # Initialize early stopping callback
+  #early_stopping = EarlyStopping(monitor='val_loss', patience=10)
+  # Loop through each fold for cross-validation
 for fold_no, (train_indices, test_indices) in enumerate(kfold.split(conversation_ids), start=1): # Extract train and test IDs for the current fold
-    # creating an LSTM model and reinitialize it for each fold
-    model = Sequential() # Initialize a sequential model
-    model.add(embedding_layer)  # Use the previously prepared embedding layer
-    model.add(LSTM(64, return_sequences=True))  # First LSTM layer with fewer units and return sequences
-    model.add(LSTM(128, return_sequences=False))  # return_sequences=False for the last LSTM layer, interested in a single output (overall sentiment score)
-    model.add(Dropout(0.5)) # Add a Dropout layer to prevent overfitting
-    model.add(Dense(1, activation='tanh'))  # Sentiment score between -1 and 1
-    model.compile(optimizer='adam', loss='mean_squared_error') # adam is a popular choice and the loss function is mean squared error, typical for regression problems
+      # creating an LSTM model and reinitialize it for each fold
+      model = Sequential() # Initialize a sequential model
+      model.add(embedding_layer)  # Use the previously prepared embedding layer
+      model.add(LSTM(64, return_sequences=True))  # First LSTM layer with fewer units and return sequences
+      model.add(LSTM(128, return_sequences=False))  # return_sequences=False for the last LSTM layer, interested in a single output (overall sentiment score)
+      model.add(Dropout(0.5)) # Add a Dropout layer to prevent overfitting
+      model.add(Dense(1, activation='tanh'))  # Sentiment score between -1 and 1
+      model.compile(optimizer='adam', loss='mean_squared_error') # adam is a popular choice and the loss function is mean squared error, typical for regression problems
 
-    # Extract train and test IDs for the current fold
-    train_ids = conversation_ids[train_indices]
-    test_ids = conversation_ids[test_indices]
-    #val_ids = conversation_ids[val]
+      # Extract train and test IDs for the current fold
+      train_ids = conversation_ids[train_indices]
+      test_ids = conversation_ids[test_indices]
+      #val_ids = conversation_ids[val]
 
-    # Select train and test DataFrame based on the conversation IDs
-    train_df = data[data['conversation_id'].isin(train_ids)]
-    test_df = data[data['conversation_id'].isin(test_ids)]
-    #val_df = data[data['conversation_id'].isin(val_ids)]
+      # Select train and test DataFrame based on the conversation IDs
+      train_df = data[data['conversation_id'].isin(train_ids)]
+      test_df = data[data['conversation_id'].isin(test_ids)]
+      #val_df = data[data['conversation_id'].isin(val_ids)]
 
-    # Prepare data for training and testing
-    X_train_padded = prepare_data(train_df)
-    y_train = train_df['sentiment'].values
+      # Prepare data for training and testing
+      X_train_padded = prepare_data(train_df)
+      y_train = train_df['sentiment'].values
 
-    X_test_padded = prepare_data(test_df)
-    y_test = test_df['sentiment'].values
+      X_test_padded = prepare_data(test_df)
+      y_test = test_df['sentiment'].values
 
-    #X_val_padded = prepare_data(val_df)
-    #y_val = val_df['sentiment'].values
+      #X_val_padded = prepare_data(val_df)
+      #y_val = val_df['sentiment'].values
 
-    # Model training for the current fold
-    print(f'Training for fold {fold_no} ...')
-    model.fit(X_train_padded, y_train, epochs=5, batch_size=64)
+      # Model training for the current fold
+      print(f'Training for fold {fold_no} ...')
+      model.fit(X_train_padded, y_train, epochs=5, batch_size=64)
 
-    # Model Evaluation on the test set
-    test_loss = model.evaluate(X_test_padded, y_test)
-    print(f'Perte sur l\'ensemble de test pour le fold {fold_no}: {test_loss}')
+      # Model Evaluation on the test set
+      test_loss = model.evaluate(X_test_padded, y_test)
+      print(f'Loss on the test set for the fold {fold_no}: {test_loss}')
 
-    # Increment the fold number
-    fold_no = fold_no + 1
+      # Increment the fold number
+      fold_no = fold_no + 1
+
+    # Return the necessary variables at the end of the function
+  #return model, X_train_padded, y_train, X_test_padded, y_test, train_ids, test_ids
+
+#train_evaluate_model() # return informations about carbon footprint
 
 """**Dimensions verification**"""
 
@@ -224,10 +244,11 @@ print(f"Dimensions of y_test: {y_test.shape}")
 print(f"Dimensions of train_ids: {train_ids.shape}")
 print(f"Dimensions of test_ids: {test_ids.shape}")
 
-"""**Model evaluation**"""
+"""**Step 4 : Model evaluation**"""
 
 # Predicting sentiments on the test set
 pred_sentiment = model.predict(X_test_padded) # Use the model to predict sentiments for the padded test data
+pred_sentiment
 
 # Calculating regression metrics
 pred_sentiment = pred_sentiment.flatten()
@@ -252,21 +273,21 @@ mean_abs_sentiment = np.mean(np.abs(data_df['sentiment']))
 print(f"Mean absolute of actual sentiment scores: {mean_abs_sentiment}")
 
 # Comparing RMSE with the standard deviation
-print(f"Le RMSE représente { (rmse / std_dev_sentiment) * 100:.2f}% de l'écart-type des scores réels.")
+print(f"The RMSE represents { (rmse / std_dev_sentiment) * 100:.2f}% of the standard deviation of the actual scores")
 # This indicates how significant the errors of your sentiment prediction model are compared to the variability of the real data
 # the errors of your sentiment prediction model are quite significant compared to the variability of the real data
 
 # Comparing MSE with the standard deviation
-print(f"The MSE represents {(mse / std_dev_sentiment**2) * 100:.2f}% de la variance des scores réels.")
+print(f"The MSE represents {(mse / std_dev_sentiment**2) * 100:.2f}% of the variance in actual scores")
 # a small part of the variability in sentiment scores is due to your model's prediction errors --> the model is quite precise
 
 # Comparing MAE with the mean absolute
-print(f"The MAE represents {(mae / mean_abs_sentiment) * 100:.2f}% de la moyenne absolue des scores réels.")
+print(f"The MAE represents {(mae / mean_abs_sentiment) * 100:.2f}%  of the absolute average of real scores.")
 # the prediction errors, on average, are quite significant compared to the average deviation of the actual scores
 
 """**Graphic visualization**"""
 
-# Graphique de dispersion
+# dispersion graphic
 plt.scatter(y_test, pred_sentiment)
 plt.xlabel('Actual Values')
 plt.ylabel('Predictions')
@@ -391,3 +412,39 @@ u_statistic, p_value = mannwhitneyu(total_variation_patient, total_variation_con
 print(f"TMann-Whitney U Test: U Statistic={u_statistic}, p-value={p_value}")
 #-->  p-value >0.05 not significative statistic difference between the two groups
 # If p-value > 0.05, it indicates no statistically significant difference between the two groups
+
+"""**Last function**"""
+
+def label_sentiment(score):
+    if score > 0:
+        return 'POS'
+    elif score < 0:
+        return 'NEG'
+    else:
+        return 'NEU'
+
+def process_new_conversations(file_path):
+    # Load new data
+    new_data = pd.read_csv(file_path)
+
+    # Clean and calculate sentiment
+    new_data['text'] = new_data['text'].apply(clean_text)
+    new_data['sentiment'] = new_data['text'].apply(sentiment_score)
+    new_data['label'] = new_data['sentiment'].apply(label_sentiment)
+
+    # Save the result to a new CSV
+    new_data.to_csv('sentiment_labeled_phrases.csv', index=False)
+
+    # Calculate variation between first and last line
+    variation_dict = {}
+    for conversation_id in new_data['conversation_id'].unique():
+        conversation_texts = new_data[new_data['conversation_id'] == conversation_id]
+        sentiment_start = conversation_texts['sentiment'].iloc[0]
+        sentiment_end = conversation_texts['sentiment'].iloc[-1]
+        variation_dict[conversation_id] = sentiment_end - sentiment_start
+
+    return variation_dict
+
+# Usage example:
+# variations = process_new_conversations('path_to_new_csv_file.csv')
+# print(variations)
