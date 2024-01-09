@@ -7,7 +7,10 @@ import json
 #### Thresholds for interpretation ####
 
 thresholds_df = pd.read_csv(r'New_clean_code\Data\general_thresholds.csv')
-print(thresholds_df)
+
+new_data_df = pd.read_csv(r'New_clean_code\User_pipeline\general_averages_user.csv')
+new_data_df = new_data_df[['average_tree_depth', 'average_lexical_density', 'word_stutter_count', 'syllable_stutter_ratio']]
+print(new_data_df)
 
 thresholds = {
     'control': {
@@ -65,15 +68,15 @@ loaded_rf_model = joblib.load(r'New_clean_code\Model\random_forest_model.pkl')
 
 
 # Add columns for predictions and probabilities to the test DataFrame to facilitate interpretation
-X_test_with_predictions = X_test.copy()
-X_test_with_predictions['predicted'] = loaded_rf_model.predict(X_test)
-X_test_with_predictions['probability_patient'] = loaded_rf_model.predict_proba(X_test)[:, 1]  # Probability of 'patient'
+new_data_with_predictions = new_data_df.copy()
+new_data_with_predictions['predicted'] = loaded_rf_model.predict(new_data_df)
+new_data_with_predictions['probability_patient'] = loaded_rf_model.predict_proba(new_data_df)[:, 1]
 
 # List to store interpretations
 interpretations = []
 
 # Loop to generate interpretations
-for index, row in X_test_with_predictions.iterrows():
+for index, row in new_data_with_predictions.iterrows():
     explanation = interpret_metrics(row, thresholds, loaded_rf_model)
     interpretations.append({
         'entry_index': index,
