@@ -1,9 +1,11 @@
 from colorama import Fore, Style
-
 import os
 import re
 import pandas as pd 
 import spacy
+import csv
+from ..Linguistic_level_functions.Lexical_density.calculate_lexical_density import lexical_density_process_csv_file, calculate_lexical_density
+
 
 #### Initial input file ####
  
@@ -78,37 +80,83 @@ def clean_text(text):
 
 nlp = spacy.load("en_core_web_sm")
 
-def process_text_file_to_csv(file_path, csv_output_path):
+def segment_and_save_sentences(input_path, output_path):
     """
-    Processes a text file using spaCy to extract sentences and save them in a CSV file.
+    This function segments sentences from a given text file using SpaCy's NLP model 
+    and saves the segmented sentences into a CSV file.
 
-    Parameters:
-        file_path (str): Path to the .txt file.
-        csv_output_path (str): Path where the CSV file will be saved.
+    Args:
+    input_path (str): The file path to the input text file.
+    output_path (str): The file path to the output CSV file.
+
+    Returns:
+    str: The file path of the created CSV file.
     """
-    # Leer el contenido del archivo .txt
-    with open(file_path, 'r', encoding='utf-8') as file:
+    
+    # Load the English SpaCy model
+    nlp = spacy.load("en_core_web_sm")
+
+    # Read the content of the .txt file
+    with open(input_path, 'r', encoding='utf-8') as file:
         text = file.read()
 
-    # Procesar el texto con spaCy
+    # Process the text with the NLP model to segment into sentences
     doc = nlp(text)
+    sentences = [sent.text for sent in doc.sents]
 
-    # Extraer las oraciones
-    sentences = [sent.text.strip() for sent in doc.sents]
+    # Create directories if they do not exist
+    os.makedirs(os.path.dirname(output_path), exist_ok=True)
 
-    # Crear un DataFrame con las oraciones
-    df = pd.DataFrame({'sentence': sentences})
+    # Save the sentences in a CSV file
+    with open(output_path, 'w', newline='', encoding='utf-8') as csvfile:
+        writer = csv.writer(csvfile)
+        writer.writerow(['text'])  # Write the header
+        for sentence in sentences:
+            writer.writerow([sentence])
 
-    # Guardar el DataFrame en un archivo CSV
-    df.to_csv(csv_output_path, index=False)
+    return output_path
 
 #### First step: Data preprocessing of .txt file ####
 
 user_file_path = request_txt_file()
 
-if user_file_path:
-    with open(user_file_path, 'r', encoding='utf-8') as file:
-        content = file.read()
-        cleaned_content = clean_text(content)
-        # Guarda directamente en un archivo CSV
-        process_text_file_to_csv(cleaned_content, r'New_clean_code\User_pipeline\clause_file.csv')
+sentence_segmentated_raw = segment_and_save_sentences(user_file_path, r'New_clean_code\User_pipeline\raw_sentences.csv')
+
+#### Second step: Cleaning and normalizing of .csv file ####
+
+def clean_csv(input_csv_path, output_csv_path):
+    """
+    This function reads a CSV file, removes empty rows and quotes from sentences,
+    and saves the cleaned data to a new CSV file.
+
+    Args:
+    input_csv_path (str): The file path to the input CSV file.
+    output_csv_path (str): The file path to the output cleaned CSV file.
+    """
+    
+    cleaned_data = []
+
+    # Read the CSV file
+    with open(input_csv_path, 'r', encoding='utf-8') as csvfile:
+        reader = csv.reader(csvfile)
+        next(reader)  # Skip the header
+        for row in reader:
+            # Ensure the row is not empty and remove quotes and extra whitespace
+            cleaned_sentence = row[0].replace('"', '').replace("'", "").strip()
+            # Add to the list if the cleaned sentence is not empty
+            if cleaned_sentence:
+                cleaned_data.append([cleaned_sentence])
+
+    # Write the cleaned data to a new CSV file
+    with open(output_csv_path, 'w', newline='', encoding='utf-8') as csvfile:
+        writer = csv.writer(csvfile)
+        writer.writerow(['text'])  # Write the header
+        writer.writerows(cleaned_data)
+
+    return output_csv_path
+
+ready_to_process_text = clean_csv(sentence_segmentated_raw, r'New_clean_code\User_pipeline\clean_text.csv')
+
+#### Third step: Linguistic level functions processing ####
+
+lexical_density_process_csv_file(ready_to_process_text, r'New_clean_code\User_pipeline\tagged_user_data.csv', calculate_lexical_density)

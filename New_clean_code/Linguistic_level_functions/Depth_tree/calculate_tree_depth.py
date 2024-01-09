@@ -53,5 +53,8 @@ def process_csv_files_for_tree_depth(directory):
                 # Save the updated DataFrame to the same file
                 df.to_csv(file_path, index=False)
 
-# Example usage
-process_csv_files_for_tree_depth('New_clean_code\Data\Tagged_full_data')
+
+#process_csv_files_for_tree_depth('New_clean_code\Data\Tagged_full_data')
+
+#### Function for user only ####
+

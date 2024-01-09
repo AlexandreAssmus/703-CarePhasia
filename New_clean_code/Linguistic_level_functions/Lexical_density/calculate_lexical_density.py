@@ -73,5 +73,40 @@ def process_csv_files(source_directory, destination_directory):
                 new_file_path = os.path.join(new_dir, f"processed_{file}")
                 df.to_csv(new_file_path, index=False)
 
-# Example usage
-process_csv_files('New_clean_code\Data\Tagged_diagnosis_data_csv', 'New_clean_code\Data\Tagged_full_data')
+# Full processing of data
+#process_csv_files('New_clean_code\Data\Tagged_diagnosis_data_csv', 'New_clean_code\Data\Tagged_full_data')
+                
+#### User function only #### 
+                
+def lexical_density_process_csv_file(file_path, destination_directory, calculate_lexical_density):
+    """
+    Process a single CSV file, calculate the lexical density for each text entry,
+    and save the result in a new CSV file named 'tagged_user_data.csv' in the
+    specified destination directory.
+
+    Parameters:
+    - file_path (str): The file path of the original CSV file to be processed.
+    - destination_directory (str): The directory where the processed CSV file will be saved.
+    - calculate_lexical_density (function): The function to be applied to calculate lexical density.
+
+    The processed file will be stored in the destination directory with the name 'tagged_user_data.csv'.
+    Each row in the processed file will contain the original columns, plus a 'lexical_density' column.
+    """
+
+    # Read the CSV file
+    df = pd.read_csv(file_path)
+
+    # Apply the lexical density calculation to the 'text' column
+    df['lexical_density'] = df['text'].apply(calculate_lexical_density)
+
+    # Make sure the destination directory exists
+    if not os.path.exists(destination_directory):
+        os.makedirs(destination_directory)
+
+    # Set the new file path in the destination directory
+    new_file_path = os.path.join(destination_directory, 'tagged_user_data.csv')
+    
+    # Save the processed DataFrame to the new file path
+    df.to_csv(new_file_path, index=False)
+    
+    return new_file_path
