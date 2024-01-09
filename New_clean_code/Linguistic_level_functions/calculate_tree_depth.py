@@ -58,3 +58,30 @@ def process_csv_files_for_tree_depth(directory):
 
 #### Function for user only ####
 
+def process_csv_file_for_tree_depth(csv_path, calculate_tree_depth):
+    """
+    Read the specified CSV file and add a 'tree_depth' column that contains the tree depth
+    of each text entry.
+
+    Parameters:
+    - csv_path (str): The file path of the CSV file to be processed.
+    - calculate_tree_depth (function): The function to be applied to calculate the depth
+      of the parse tree for each sentence.
+
+    This function updates the specified CSV file, adding a 'tree_depth' column.
+    """
+
+    # Check if the file exists
+    if not os.path.isfile(csv_path):
+        raise FileNotFoundError(f"The file {csv_path} does not exist.")
+
+    # Read the CSV file
+    df = pd.read_csv(csv_path)
+
+    # Apply the tree depth calculation to the 'text' column
+    df['tree_depth'] = df['text'].apply(calculate_tree_depth)
+
+    # Save the updated DataFrame to the same file
+    df.to_csv(csv_path, index=False)
+
+    print(f"Updated file with 'tree_depth' column saved to {csv_path}")

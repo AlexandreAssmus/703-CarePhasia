@@ -108,5 +108,7 @@ def lexical_density_process_csv_file(file_path, destination_directory, calculate
     
     # Save the processed DataFrame to the new file path
     df.to_csv(new_file_path, index=False)
-    
+
+    print(f"Updated file with 'tree_depth' column saved to {new_file_path}")
+
     return new_file_path

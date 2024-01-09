@@ -28,7 +28,7 @@ def word_stutter(data):
 # SYLLABLE REPETITION ----------------------------------------------------------------------------------------
 
 
-with open("New_clean_code\Linguistic_level_functions\Stuttering\en_US-large.txt",'r') as file:
+with open("New_clean_code\Linguistic_level_functions\en_US-large.txt",'r') as file:
     english_words = file.read().splitlines()
 
 def find_unknown_words(data):
@@ -110,5 +110,42 @@ def add_stutter_metrics_to_thresholds(thresholds_file, source_directory):
     # Save the updated DataFrame
     thresholds_df.to_csv(thresholds_file, index=False)
 
-# Example usage
-add_stutter_metrics_to_thresholds(r'New_clean_code\Data\thresholds_per_file.csv', r'New_clean_code\Data\Tagged_full_data')
+
+#add_stutter_metrics_to_thresholds(r'New_clean_code\Data\thresholds_per_file.csv', r'New_clean_code\Data\Tagged_full_data')
+
+# USER FUNCTION TO PROCESS ---------------------------------------------------------------------------------------------------------
+
+def add_stutter_metrics_to_single_file(thresholds_file, csv_file_path):
+    """
+    Add word stutter count and syllable stutter ratio metrics for a single CSV file and update the corresponding row in thresholds_per_file.csv.
+
+    Parameters:
+    - thresholds_file (str): Path to the thresholds_per_file.csv file.
+    - csv_file_path (str): Path to the CSV file to be analyzed.
+    """
+    # Read the existing thresholds file
+    thresholds_df = pd.read_csv(thresholds_file)
+
+    # Check if the specified CSV file exists
+    if not os.path.isfile(csv_file_path):
+        raise FileNotFoundError(f"The file {csv_file_path} does not exist.")
+
+    # Read the specified CSV file
+    df = pd.read_csv(csv_file_path)
+
+    # Calculate new metrics
+    word_stutter_count = word_stutter(df)
+    syllable_stutter_ratio = syllable_stutter(df)
+
+    # Check if there is exactly one row in the thresholds DataFrame to update
+    if len(thresholds_df.index) == 1:
+        # Update the metrics on the existing row
+        thresholds_df.at[0, 'word_stutter_count'] = word_stutter_count
+        thresholds_df.at[0, 'syllable_stutter_ratio'] = syllable_stutter_ratio
+    else:
+        # If there are no rows or more than one, raise an error
+        raise ValueError("The DataFrame does not have exactly one row to update.")
+
+    # Save the updated DataFrame back to the CSV file
+    thresholds_df.to_csv(thresholds_file, index=False)
+

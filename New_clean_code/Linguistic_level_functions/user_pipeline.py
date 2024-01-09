@@ -4,7 +4,10 @@ import re
 import pandas as pd 
 import spacy
 import csv
-from ..Linguistic_level_functions.Lexical_density.calculate_lexical_density import lexical_density_process_csv_file, calculate_lexical_density
+from calculate_tree_depth import process_csv_file_for_tree_depth, calculate_tree_depth
+from calculate_lexical_density import calculate_lexical_density, lexical_density_process_csv_file
+from stutter_detection_function import word_stutter, find_unknown_words, syllable_stutter, add_stutter_metrics_to_single_file
+from ..Model.interpretation_metrics import *
 
 
 #### Initial input file ####
@@ -160,3 +163,41 @@ ready_to_process_text = clean_csv(sentence_segmentated_raw, r'New_clean_code\Use
 #### Third step: Linguistic level functions processing ####
 
 lexical_density_process_csv_file(ready_to_process_text, r'New_clean_code\User_pipeline\tagged_user_data.csv', calculate_lexical_density)
+process_csv_file_for_tree_depth(r'New_clean_code\User_pipeline\tagged_user_data.csv\tagged_user_data.csv', calculate_tree_depth)
+
+#### Fourth step: Calculate averages #### 
+
+def calculate_averages_and_save(csv_path, output_file):
+    """
+    Calculate the average values of 'lexical_density' and 'depth_tree' columns from a given CSV file
+    and save these averages in a new CSV file.
+
+    Args:
+    - csv_path (str): Path to the input CSV file.
+    - output_file (str): Path to the output CSV file where averages will be saved.
+
+    The new CSV file will contain two columns: 'average_lexical_density' and 'average_depth_tree'.
+    """
+
+    # Read the CSV file
+    df = pd.read_csv(csv_path)
+
+    # Calculate the average values
+    average_lexical_density = df['lexical_density'].mean()
+    average_tree_depth = df['tree_depth'].mean()
+
+    # Create a new DataFrame with average values
+    avg_df = pd.DataFrame({
+        'average_lexical_density': [average_lexical_density],
+        'average_tree_depth': [average_tree_depth]
+    })
+
+    # Save the averages to a new CSV file
+    avg_df.to_csv(output_file, index=False)
+    print(f"Averages saved to {output_file}")
+
+calculate_averages_and_save(r'New_clean_code\User_pipeline\tagged_user_data.csv\tagged_user_data.csv', r'New_clean_code\User_pipeline\general_averages_user.csv')
+
+#### Fifth step: Add stutter metrics (they work at a whole text level instead of single lines) ####
+
+add_stutter_metrics_to_single_file(r'New_clean_code\User_pipeline\general_averages_user.csv', r'New_clean_code\User_pipeline\clean_text.csv')
