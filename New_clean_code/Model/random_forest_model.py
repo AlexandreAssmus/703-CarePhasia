@@ -14,11 +14,7 @@ import pandas as pd
 import joblib
 import seaborn as sns
 import matplotlib.pyplot as plt
-<<<<<<< HEAD
-
-=======
 import graphviz
->>>>>>> 8bb6179477c66038094792e5e929065842ba216b
 #### Data preprocessing ####
 
 data = pd.read_csv(r'New_clean_code\Data\thresholds_per_file.csv')
@@ -33,62 +29,62 @@ y = data['diagnosis']
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
 
-# #### Model creation - Random Forest ####
-# rf_model = RandomForestClassifier(n_estimators=100, random_state=42)
-# rf_model.fit(X_train, y_train)
+#### Model creation - Random Forest ####
+rf_model = RandomForestClassifier(n_estimators=100, random_state=42)
+rf_model.fit(X_train, y_train)
 
-# #### Model evaluation ####
-# y_pred = rf_model.predict(X_test)
-# print(f'Accuracy: {accuracy_score(y_test, y_pred)}')
-# print(classification_report(y_test, y_pred))
+#### Model evaluation ####
+y_pred = rf_model.predict(X_test)
+print(f'Accuracy: {accuracy_score(y_test, y_pred)}')
+print(classification_report(y_test, y_pred))
 
-# # # Generating the confusion matrix
-# # cm = confusion_matrix(y_test, y_pred)
+# # Generating the confusion matrix
+# cm = confusion_matrix(y_test, y_pred)
 categories = ["Patient", "Control"]
-# # # Plotting the confusion matrix
-# plt.figure(figsize=(10,7))
-# sns.heatmap(cm/np.sum(cm), annot=True, fmt='g', cmap='Blues', xticklabels=categories, yticklabels=categories)
-# plt.xlabel('Predicted')
-# plt.ylabel('True Label')
-# plt.title('Confusion Matrix')
-# plt.show() 
+# # Plotting the confusion matrix
+plt.figure(figsize=(10,7))
+sns.heatmap(cm/np.sum(cm), annot=True, fmt='g', cmap='Blues', xticklabels=categories, yticklabels=categories)
+plt.xlabel('Predicted')
+plt.ylabel('True Label')
+plt.title('Confusion Matrix')
+plt.show() 
 
-# # #feature importance - Built-in Gini Importance
-# importance = rf_model.feature_importances_
-# sorted_indices = np.argsort(importance)[::-1]
+# #feature importance - Built-in Gini Importance
+importance = rf_model.feature_importances_
+sorted_indices = np.argsort(importance)[::-1]
 
-# # # Converting to data frames
-# feature_names = ['average_tree_depth', 'average_lexical_density','word_stutter_count','syllable_stutter_ratio']
-# df = pd.DataFrame({'Feature': np.array(feature_names)[sorted_indices], 'Importance': importance[sorted_indices]})
+# # Converting to data frames
+feature_names = ['average_tree_depth', 'average_lexical_density','word_stutter_count','syllable_stutter_ratio']
+df = pd.DataFrame({'Feature': np.array(feature_names)[sorted_indices], 'Importance': importance[sorted_indices]})
 
-# # Plotting the feature importance
-# plt.figure(figsize=(10, 6))
-# plt.title('Feature Importance')
-# plt.bar(range(X.shape[1]), df['Importance'], align="center")
-# plt.xticks(range(X.shape[1]), df['Feature'], rotation=45)
-# plt.xlim([-1, X.shape[1]])
-# plt.show()
+# Plotting the feature importance
+plt.figure(figsize=(10, 6))
+plt.title('Feature Importance')
+plt.bar(range(X.shape[1]), df['Importance'], align="center")
+plt.xticks(range(X.shape[1]), df['Feature'], rotation=45)
+plt.xlim([-1, X.shape[1]])
+plt.show()
 
-# ##feature importance - Mean Decrease Accuracy
+##feature importance - Mean Decrease Accuracy
 
-# permutation_imp = permutation_importance(rf_model, X_test, y_test)
-# sorted_indices_p = permutation_imp.importances_mean.argsort()
+permutation_imp = permutation_importance(rf_model, X_test, y_test)
+sorted_indices_p = permutation_imp.importances_mean.argsort()
 
-# df_perm = pd.DataFrame({'Feature': np.array(feature_names)[sorted_indices_p], 'Importance': importance[sorted_indices_p]})
-# plt.bar(range(X.shape[1]), df['Importance'], align="center")
-# plt.xticks(range(X.shape[1]), df['Feature'], rotation=45)
-# plt.xlim([-1, X.shape[1]])
-# plt.xlabel("Permutation Importance")
-# plt.show()
+df_perm = pd.DataFrame({'Feature': np.array(feature_names)[sorted_indices_p], 'Importance': importance[sorted_indices_p]})
+plt.bar(range(X.shape[1]), df['Importance'], align="center")
+plt.xticks(range(X.shape[1]), df['Feature'], rotation=45)
+plt.xlim([-1, X.shape[1]])
+plt.xlabel("Permutation Importance")
+plt.show()
 
-# #feature importance - with SHAP values
+#feature importance - with SHAP values
 
-# explainer = shap.TreeExplainer(rf_model)
-# shap_values = explainer.shap_values(X_test)
-# shap.summary_plot(shap_values, X_test, plot_type="bar", class_names=categories)
+explainer = shap.TreeExplainer(rf_model)
+shap_values = explainer.shap_values(X_test)
+shap.summary_plot(shap_values, X_test, plot_type="bar", class_names=categories)
 
-# # #### Save model ####
-# joblib.dump(rf_model, r'New_clean_code\Model\random_forest_model.pkl')
+# #### Save model ####
+joblib.dump(rf_model, r'New_clean_code\Model\random_forest_model.pkl')
 
 
 
@@ -117,6 +113,41 @@ plt.title('Confusion Matrix for Decision Tree')
 plt.show() 
 
 
+importance_dt = dt_model.feature_importances_
+sorted_indices = np.argsort(importance_dt)[::-1]
+
+# # Converting to data frames
+feature_names = ['average_tree_depth', 'average_lexical_density','word_stutter_count','syllable_stutter_ratio']
+df = pd.DataFrame({'Feature': np.array(feature_names)[sorted_indices], 
+                   'Importance': importance_dt[sorted_indices]})
+
+# Plotting the feature importance
+plt.figure(figsize=(10, 6))
+plt.title('Feature Importance for Decision Tree')
+plt.bar(range(X.shape[1]), df['Importance'], align="center")
+plt.xticks(range(X.shape[1]), df['Feature'], rotation=45)
+plt.xlim([-1, X.shape[1]])
+plt.show()
+
+##feature importance - Mean Decrease Accuracy
+
+permutation_imp_dt = permutation_importance(dt_model, X_test, y_test)
+sorted_indices_p = permutation_imp_dt.importances_mean.argsort()
+
+df_perm = pd.DataFrame({'Feature': np.array(feature_names)[sorted_indices_p], 'Importance': importance_dt[sorted_indices_p]})
+plt.bar(range(X.shape[1]), df['Importance'], align="center")
+plt.xticks(range(X.shape[1]), df['Feature'], rotation=45)
+plt.xlim([-1, X.shape[1]])
+plt.xlabel("Permutation Importance for Decision Tree")
+plt.show()
+
+#feature importance - with SHAP values
+
+explainer = shap.TreeExplainer(dt_model)
+shap_values = explainer.shap_values(X_test)
+shap.summary_plot(shap_values, X_test, plot_type="bar", class_names=categories)
+
+
 # #Graph visualization - default + graphviz
 # plt.figure(figsize=(35, 28))
 # plot_tree(dt_model, feature_names=feature_names, class_names=categories, filled=True, rounded=True)
@@ -130,72 +161,72 @@ plt.show()
 #                            special_characters=True)
 
 # # Use graphviz to visualize the tree
-# graph = graphviz.Source(dot_data) 
-# graph.render("decision_tree", format="png")  # Saves the tree as a PNG file
-# graph.view()  # Opens the tree in a viewer
+graph = graphviz.Source(dot_data) 
+graph.render("decision_tree", format="png")  # Saves the tree as a PNG file
+graph.view()  # Opens the tree in a viewer
 
 
-# ## CLassification using TF-IDF vectorization
+## CLassification using TF-IDF vectorization
 
-# data_texts = pd.read_csv(r'New_clean_code\Data\CSV_clean\combined_control_patient_data.csv')
-# texts = data_texts['text']
-# labels = data_texts['group']
-
-
-# # # TF-IDF Transformation
-# vectorizer = TfidfVectorizer()
-# X_tf = vectorizer.fit_transform(texts)
-# # print(tf_vectors)
-# # X_tf = hstack([tf_vectors, X])
-
-# # print("Going into training")
-# # # Splitting the data into training and test sets
-# X_train, X_test, y_train, y_test = train_test_split(X_tf, labels, test_size=0.3, random_state=42)
-
-# # # Train Random Forest Model
-# model_tf = RandomForestClassifier()
-# model_tf.fit(X_train, y_train)
-
-# # print("training finished")
-
-# # #### Model evaluation ####
-# y_pred_tf = model_tf.predict(X_test)
-# print(f'Accuracy: {accuracy_score(y_test, y_pred_tf)}')
-# print(classification_report(y_test, y_pred_tf))
-
-# # # Generating the confusion matrix
-# cm_tf = confusion_matrix(y_test, y_pred_tf)
-# categories = ["Patient", "Control"]
+data_texts = pd.read_csv(r'New_clean_code\Data\CSV_clean\combined_control_patient_data.csv')
+texts = data_texts['text']
+labels = data_texts['group']
 
 
-# # Plotting the confusion matrix
-# plt.figure(figsize=(10,7))
-# sns.heatmap(cm_tf/np.sum(cm_tf), annot=True, fmt='g', cmap='Blues', xticklabels=categories, yticklabels=categories)
-# plt.xlabel('Predicted')
-# plt.ylabel('True Label')
-# plt.title('Confusion Matrix')
-# plt.show() 
+# # TF-IDF Transformation
+vectorizer = TfidfVectorizer()
+X_tf = vectorizer.fit_transform(texts)
+# print(tf_vectors)
+# X_tf = hstack([tf_vectors, X])
+
+# print("Going into training")
+# # Splitting the data into training and test sets
+X_train, X_test, y_train, y_test = train_test_split(X_tf, labels, test_size=0.3, random_state=42)
+
+# # Train Random Forest Model
+model_tf = RandomForestClassifier()
+model_tf.fit(X_train, y_train)
+
+# print("training finished")
+
+# #### Model evaluation ####
+y_pred_tf = model_tf.predict(X_test)
+print(f'Accuracy: {accuracy_score(y_test, y_pred_tf)}')
+print(classification_report(y_test, y_pred_tf))
+
+# # Generating the confusion matrix
+cm_tf = confusion_matrix(y_test, y_pred_tf)
+categories = ["Patient", "Control"]
 
 
-# # # Get Feature Importance - Extracting the important words
-# feature_importance = model_tf.feature_importances_
+# Plotting the confusion matrix
+plt.figure(figsize=(10,7))
+sns.heatmap(cm_tf/np.sum(cm_tf), annot=True, fmt='g', cmap='Blues', xticklabels=categories, yticklabels=categories)
+plt.xlabel('Predicted')
+plt.ylabel('True Label')
+plt.title('Confusion Matrix')
+plt.show() 
 
-# # # Creating a DataFrame for better visualization
-# feature_names = vectorizer.get_feature_names_out()
-# importance_df = pd.DataFrame({'Feature': feature_names, 'Importance': feature_importance})
 
-# # # Sorting by importance
-# importance_df.sort_values(by='Importance', ascending=False, inplace=True)
-# # print(importance_df)
-# top_n = 10
-# top_features = importance_df.head(top_n)
-# plt.figure(figsize=(10, 6))
-# plt.barh(top_features['Feature'], top_features['Importance'])
-# plt.xlabel('Importance')
-# plt.ylabel('Features')
-# plt.title('Top {} Feature Importances in TF-IDF'.format(top_n))
-# plt.gca().invert_yaxis()  # To display the highest importance on top
-# plt.show()
+# # Get Feature Importance - Extracting the important words
+feature_importance = model_tf.feature_importances_
 
-# joblib.dump(model_tf, r'New_clean_code\Model\random_forest_model_with_TF-IDF.pkl')
+# # Creating a DataFrame for better visualization
+feature_names = vectorizer.get_feature_names_out()
+importance_df = pd.DataFrame({'Feature': feature_names, 'Importance': feature_importance})
+
+# # Sorting by importance
+importance_df.sort_values(by='Importance', ascending=False, inplace=True)
+# print(importance_df)
+top_n = 10
+top_features = importance_df.head(top_n)
+plt.figure(figsize=(10, 6))
+plt.barh(top_features['Feature'], top_features['Importance'])
+plt.xlabel('Importance')
+plt.ylabel('Features')
+plt.title('Top {} Feature Importances in TF-IDF'.format(top_n))
+plt.gca().invert_yaxis()  # To display the highest importance on top
+plt.show()
+
+joblib.dump(model_tf, r'New_clean_code\Model\random_forest_model_with_TF-IDF.pkl')
 
