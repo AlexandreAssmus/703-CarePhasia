@@ -14,11 +14,7 @@ import pandas as pd
 import joblib
 import seaborn as sns
 import matplotlib.pyplot as plt
-<<<<<<< HEAD
-
-=======
 import graphviz
->>>>>>> 8bb6179477c66038094792e5e929065842ba216b
 #### Data preprocessing ####
 
 data = pd.read_csv(r'New_clean_code\Data\thresholds_per_file.csv')
@@ -33,7 +29,7 @@ y = data['diagnosis']
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
 
-# #### Model creation - Random Forest ####
+#### Model creation - Random Forest ####
 rf_model = RandomForestClassifier(n_estimators=100, random_state=42)
 rf_model.fit(X_train, y_train)
 
@@ -117,19 +113,54 @@ plt.title('Confusion Matrix for Decision Tree')
 plt.show() 
 
 
-#Graph visualization - default + graphviz
-plt.figure(figsize=(35, 28))
-plot_tree(dt_model, feature_names=feature_names, class_names=categories, filled=True, rounded=True)
+importance_dt = dt_model.feature_importances_
+sorted_indices = np.argsort(importance_dt)[::-1]
+
+# # Converting to data frames
+feature_names = ['average_tree_depth', 'average_lexical_density','word_stutter_count','syllable_stutter_ratio']
+df = pd.DataFrame({'Feature': np.array(feature_names)[sorted_indices], 
+                   'Importance': importance_dt[sorted_indices]})
+
+# Plotting the feature importance
+plt.figure(figsize=(10, 6))
+plt.title('Feature Importance for Decision Tree')
+plt.bar(range(X.shape[1]), df['Importance'], align="center")
+plt.xticks(range(X.shape[1]), df['Feature'], rotation=45)
+plt.xlim([-1, X.shape[1]])
 plt.show()
 
-# Export as dot file
-dot_data = export_graphviz(dt_model, out_file=None, 
-                           feature_names=feature_names,  
-                           class_names=categories,
-                           filled=True, rounded=True,  
-                           special_characters=True)
+##feature importance - Mean Decrease Accuracy
 
-# Use graphviz to visualize the tree
+permutation_imp_dt = permutation_importance(dt_model, X_test, y_test)
+sorted_indices_p = permutation_imp_dt.importances_mean.argsort()
+
+df_perm = pd.DataFrame({'Feature': np.array(feature_names)[sorted_indices_p], 'Importance': importance_dt[sorted_indices_p]})
+plt.bar(range(X.shape[1]), df['Importance'], align="center")
+plt.xticks(range(X.shape[1]), df['Feature'], rotation=45)
+plt.xlim([-1, X.shape[1]])
+plt.xlabel("Permutation Importance for Decision Tree")
+plt.show()
+
+#feature importance - with SHAP values
+
+explainer = shap.TreeExplainer(dt_model)
+shap_values = explainer.shap_values(X_test)
+shap.summary_plot(shap_values, X_test, plot_type="bar", class_names=categories)
+
+
+# #Graph visualization - default + graphviz
+# plt.figure(figsize=(35, 28))
+# plot_tree(dt_model, feature_names=feature_names, class_names=categories, filled=True, rounded=True)
+# plt.show()
+
+# # Export as dot file
+# dot_data = export_graphviz(dt_model, out_file=None, 
+#                            feature_names=feature_names,  
+#                            class_names=categories,
+#                            filled=True, rounded=True,  
+#                            special_characters=True)
+
+# # Use graphviz to visualize the tree
 graph = graphviz.Source(dot_data) 
 graph.render("decision_tree", format="png")  # Saves the tree as a PNG file
 graph.view()  # Opens the tree in a viewer
